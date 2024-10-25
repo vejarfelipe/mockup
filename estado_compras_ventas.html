@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Compras y Ventas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Estado de Compras y Ventas</h1>
+        <nav>
+            <ul>
+                <li><a href="ver_stock.html">Ver Stock</a></li>
+                <li><a href="ordenes_trabajo.html">Generar Órdenes de Trabajo</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="estado_compras_ventas.html">Estado de Compras y Ventas</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Ventas Finalizadas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID de Venta</th>
+                    <th>Cliente</th>
+                    <th>Fecha de Venta</th>
+                    <th>Total</th>
+                    <th>Feedback del Cliente</th>
+                    <th>Informe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Juan Pérez</td>
+                    <td>2024-10-01</td>
+                    <td>$500,000</td>
+                    <td>Excelente servicio y producto.</td>
+                    <td><button onclick="generarInforme('venta', 1)">Generar Informe</button></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>María Gómez</td>
+                    <td>2024-10-05</td>
+                    <td>$750,000</td>
+                    <td>Muy satisfecho con la compra.</td>
+                    <td><button onclick="generarInforme('venta', 2)">Generar Informe</button></td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Pedro Martínez</td>
+                    <td>2024-10-10</td>
+                    <td>$300,000</td>
+                    <td>El producto llegó dañado, pero la atención fue rápida.</td>
+                    <td><button onclick="generarInforme('venta', 3)">Generar Informe</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Ventas en Curso</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID de Venta</th>
+                    <th>Cliente</th>
+                    <th>Fecha de Compra</th>
+                    <th>Estado</th>
+                    <th>Informe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>004</td>
+                    <td>Ana Torres</td>
+                    <td>2024-10-15</td>
+                    <td>En Proceso</td>
+                    <td><button onclick="generarInforme('venta', 4)">Generar Informe</button></td>
+                </tr>
+                <tr>
+                    <td>005</td>
+                    <td>Lucía Ramírez</td>
+                    <td>2024-10-18</td>
+                    <td>En Proceso</td>
+                    <td><button onclick="generarInforme('venta', 5)">Generar Informe</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Compras a Proveedores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID de Compra</th>
+                    <th>Proveedor</th>
+                    <th>Fecha de Compra</th>
+                    <th>Total</th>
+                    <th>Informe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Proveedor A</td>
+                    <td>2024-10-01</td>
+                    <td>$1,500,000</td>
+                    <td><button onclick="generarInforme('compra', 101)">Generar Informe</button></td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Proveedor B</td>
+                    <td>2024-10-05</td>
+                    <td>$2,000,000</td>
+                    <td><button onclick="generarInforme('compra', 102)">Generar Informe</button></td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Proveedor C</td>
+                    <td>2024-10-10</td>
+                    <td>$750,000</td>
+                    <td><button onclick="generarInforme('compra', 103)">Generar Informe</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function generarInforme(tipo, id) {
+            const doc = new jsPDF();
+            doc.setFontSize(18);
+            if (tipo === 'venta') {
+                doc.text(`Informe de Venta - ID: ${id}`, 10, 10);
+                doc.text(`Detalles de la Venta ID: ${id}`, 10, 20);
+                // Agregar más detalles sobre la venta aquí
+                doc.save(`informe_venta_${id}.pdf`);
+            } else if (tipo === 'compra') {
+                doc.text(`Informe de Compra - ID: ${id}`, 10, 10);
+                doc.text(`Detalles de la Compra ID: ${id}`, 10, 20);
+                // Agregar más detalles sobre la compra aquí
+                doc.save(`informe_compra_${id}.pdf`);
+            }
+        }
+    </script>
+</body>
+</html>

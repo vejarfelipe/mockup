@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Vendedor - Ventas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard Vendedor - Ventas</h1>
+        <nav>
+            <ul>
+                <li><a href="ver_stock.html">Ver Stock</a></li>
+                <li><a href="ordenes_trabajo.html">Generar Órdenes de Trabajo</a></li>
+                <li><a href="ventas.html">Ventas</a></li>
+                <li><a href="estado_compras_ventas.html">Estado de Compras y Ventas</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Resumen de Ventas</h2>
+
+        <!-- Resumen de Ventas -->
+        <div class="ventas-resumen">
+            <div>
+                <h3>Ventas del Día</h3>
+                <ul>
+                    <li>Bicicletas Vendidas: 5 - $2,500,000</li>
+                    <li>Repuestos Vendidos: 10 - $500,000</li>
+                    <li>Accesorios Vendidos: 20 - $100,000</li>
+                    <li><strong>Total: $3,100,000</strong></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ventas de la Semana</h3>
+                <ul>
+                    <li>Bicicletas Vendidas: 30 - $15,000,000</li>
+                    <li>Repuestos Vendidos: 60 - $3,000,000</li>
+                    <li>Accesorios Vendidos: 100 - $500,000</li>
+                    <li><strong>Total: $18,500,000</strong></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ventas del Mes</h3>
+                <ul>
+                    <li>Bicicletas Vendidas: 150 - $75,000,000</li>
+                    <li>Repuestos Vendidos: 250 - $12,500,000</li>
+                    <li>Accesorios Vendidos: 400 - $2,000,000</li>
+                    <li><strong>Total: $89,500,000</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Selector para tipo de informe -->
+        <label for="tipo-informe">Selecciona el tipo de informe:</label>
+        <select id="tipo-informe">
+            <option value="diario">Diario</option>
+            <option value="semanal">Semanal</option>
+            <option value="mensual">Mensual</option>
+        </select>
+
+        <!-- Botón para Generar Informe PDF -->
+        <button onclick="generarInforme()">Generar Informe PDF</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Librería jsPDF para la generación de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        function generarInforme() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const tipoInforme = document.getElementById('tipo-informe').value;
+
+            // Títulos y contenido
+            doc.setFontSize(18);
+            doc.text(`Informe de Ventas - ${tipoInforme.charAt(0).toUpperCase() + tipoInforme.slice(1)}`, 10, 10);
+
+            doc.setFontSize(14);
+            if (tipoInforme === 'diario') {
+                doc.text("Ventas del Día", 10, 30);
+                doc.text("Bicicletas Vendidas: 5 - $2,500,000", 10, 40);
+                doc.text("Repuestos Vendidos: 10 - $500,000", 10, 50);
+                doc.text("Accesorios Vendidos: 20 - $100,000", 10, 60);
+                doc.text("Total: $3,100,000", 10, 70);
+            } else if (tipoInforme === 'semanal') {
+                doc.text("Ventas de la Semana", 10, 30);
+                doc.text("Bicicletas Vendidas: 30 - $15,000,000", 10, 40);
+                doc.text("Repuestos Vendidos: 60 - $3,000,000", 10, 50);
+                doc.text("Accesorios Vendidos: 100 - $500,000", 10, 60);
+                doc.text("Total: $18,500,000", 10, 70);
+            } else if (tipoInforme === 'mensual') {
+                doc.text("Ventas del Mes", 10, 30);
+                doc.text("Bicicletas Vendidas: 150 - $75,000,000", 10, 40);
+                doc.text("Repuestos Vendidos: 250 - $12,500,000", 10, 50);
+                doc.text("Accesorios Vendidos: 400 - $2,000,000", 10, 60);
+                doc.text("Total: $89,500,000", 10, 70);
+            }
+
+            // Guardar el PDF
+            doc.save(`informe_ventas_masterbikes_${tipoInforme}.pdf`);
+        }
+    </script>
+
+    <style>
+        /* Estilos adicionales para la vista de ventas */
+        .ventas-resumen {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .ventas-resumen div {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            width: 30%;
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</body>
+</html>
