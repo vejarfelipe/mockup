@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para asegurar que el footer quede en la parte inferior */
 }
 
 header {
@@ -39,6 +42,21 @@ section {
     border-radius: 8px;
 }
 
+/* Estilo para el selector de color */
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.color-swatch {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
 form label {
     display: block;
     margin-top: 10px;
@@ -68,9 +86,8 @@ footer {
     padding: 1em;
     background-color: #333;
     color: white;
-    position: fixed;
+    margin-top: auto; /* Empuja el footer al final de la página */
     width: 100%;
-    bottom: 0;
 }
 
 ul {
@@ -97,6 +114,7 @@ ul li {
 .button:hover {
     background-color: #218838;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -120,4 +138,19 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #ddd;
+}
+
+.stock-models {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.bike-model {
+    flex: 1 1 30%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
 }

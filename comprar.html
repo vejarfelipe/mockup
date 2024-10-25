@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Bicicletas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Comprar Bicicletas</h1>
+        <nav>
+            <ul>
+                <li><a href="comprar.html">Comprar</a></li>
+                <li><a href="seguimiento_compras.html">Seguimiento de Compras</a></li>
+                <li><a href="arriendo2.html">Arriendo</a></li>
+                <li><a href="reparacion2.html">Reparación</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Modelos de Bicicletas</h2>
+        
+        <!-- Modelos de bicicletas pre fabricadas -->
+        <div class="stock-models">
+            <div class="bike-model">
+                <h3>Modelo Montaña</h3>
+                <p>Precio: $500</p>
+                <label for="mountain-size">Selecciona Talla:</label>
+                <select id="mountain-size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+
+                <label for="mountain-quantity">Cantidad:</label>
+                <select id="mountain-quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <button onclick="addToCart('Modelo Montaña')">Añadir al Carrito</button>
+            </div>
+
+            <div class="bike-model">
+                <h3>Modelo Carretera</h3>
+                <p>Precio: $700</p>
+                <label for="road-size">Selecciona Talla:</label>
+                <select id="road-size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+
+                <label for="road-quantity">Cantidad:</label>
+                <select id="road-quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <button onclick="addToCart('Modelo Carretera')">Añadir al Carrito</button>
+            </div>
+
+            <div class="bike-model">
+                <h3>Modelo Urbano</h3>
+                <p>Precio: $450</p>
+                <label for="urban-size">Selecciona Talla:</label>
+                <select id="urban-size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+
+                <label for="urban-quantity">Cantidad:</label>
+                <select id="urban-quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <button onclick="addToCart('Modelo Urbano')">Añadir al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección para personalizar bicicleta -->
+    <section>
+        <h2>Bicicleta Personalizada</h2>
+        <form id="customBikeForm">
+            <label for="custom-frame">Tipo de Cuadro:</label>
+            <select id="custom-frame" required>
+                <option value="carbono">Carbono</option>
+                <option value="aluminio">Aluminio</option>
+                <option value="acero">Acero</option>
+            </select>
+
+            <label for="custom-size">Talla:</label>
+            <select id="custom-size" required>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+
+            <label for="custom-wheels">Tipo de Ruedas:</label>
+            <select id="custom-wheels" required>
+                <option value="montaña">Montaña</option>
+                <option value="carretera">Carretera</option>
+                <option value="híbrida">Híbrida</option>
+            </select>
+
+            <!-- Selección de color predefinida -->
+            <label for="custom-color">Color:</label>
+            <div class="color-options">
+                <label><input type="radio" name="custom-color" value="rojo" required> <span class="color-swatch" style="background-color: #FF0000;"></span> Rojo</label>
+                <label><input type="radio" name="custom-color" value="azul" required> <span class="color-swatch" style="background-color: #0000FF;"></span> Azul</label>
+                <label><input type="radio" name="custom-color" value="verde" required> <span class="color-swatch" style="background-color: #008000;"></span> Verde</label>
+                <!-- Más colores... -->
+            </div>
+
+            <label for="custom-accessories">Accesorios (opcional):</label>
+            <textarea id="custom-accessories" placeholder="Ej: porta botellas, luces, etc."></textarea>
+
+            <button type="submit" onclick="orderCustomBike()">Generar Orden de Compra</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para añadir modelos de stock al carrito
+        function addToCart(model) {
+            alert(model + " añadido al carrito de compras.");
+            // Aquí puedes agregar código para enviar el modelo seleccionado al carrito
+        }
+
+        // Función para procesar la bicicleta personalizada
+        function orderCustomBike() {
+            alert("Orden de compra generada para la bicicleta personalizada.");
+            // Aquí puedes agregar código para enviar la orden personalizada al carrito
+        }
+    </script>
+</body>
+</html>

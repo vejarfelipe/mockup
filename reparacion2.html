@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Comprador</title>
+    <title>Reparación de Bicicletas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Dashboard Comprador</h1>
+        <h1>Reparación de Bicicletas</h1>
         <nav>
             <ul>
                 <li><a href="comprar.html">Comprar</a></li>
@@ -20,9 +20,17 @@
         </nav>
     </header>
 
-    <section>
-        <h2>Opciones del Comprador</h2>
-        <p>Puedes realizar una compra, hacer seguimiento de tus compras, alquilar una bicicleta o solicitar una reparación.</p>
+    <section id="formulario-reparacion">
+        <h2>Formulario de Reparación</h2>
+        <form action="#">
+            <label for="problema">Describa el problema:</label>
+            <textarea id="problema" name="problema" rows="4" cols="50"></textarea>
+
+            <label for="fecha">Fecha de reparación:</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <button type="submit">Solicitar Reparación</button>
+        </form>
     </section>
 
     <footer>

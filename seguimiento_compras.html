@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Seguimiento de Compras</h1>
+        <nav>
+            <ul>
+                <li><a href="comprar.html">Comprar</a></li>
+                <li><a href="seguimiento_compras.html">Seguimiento de Compras</a></li>
+                <li><a href="arriendo2.html">Arriendo</a></li>
+                <li><a href="reparacion2.html">Reparación</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Historial de Compras</h2>
+        <div class="purchase-tracker">
+            <!-- Pedido 1: En Curso -->
+            <div class="purchase">
+                <h3>Pedido #001</h3>
+                <p><strong>Fecha de compra:</strong> 20 de Octubre de 2024</p>
+                <p><strong>Estado:</strong> En curso</p>
+                <p><strong>Fecha estimada de entrega:</strong> 30 de Octubre de 2024</p>
+                <p><strong>Detalles:</strong> Bicicleta de Montaña, talla M, color Azul</p>
+                <button disabled>Calificar</button> <!-- Calificación no disponible hasta que el pedido esté finalizado -->
+            </div>
+
+            <!-- Pedido 2: Completado -->
+            <div class="purchase completed">
+                <h3>Pedido #002</h3>
+                <p><strong>Fecha de compra:</strong> 10 de Septiembre de 2024</p>
+                <p><strong>Estado:</strong> Entregado</p>
+                <p><strong>Fecha de entrega:</strong> 15 de Septiembre de 2024</p>
+                <p><strong>Detalles:</strong> Bicicleta de Carretera, talla L, color Rojo</p>
+                <label for="rating-002">Calificación:</label>
+                <select id="rating-002" onchange="rateOrder(2)">
+                    <option value="">Selecciona una calificación</option>
+                    <option value="1">1 ⭐</option>
+                    <option value="2">2 ⭐⭐</option>
+                    <option value="3">3 ⭐⭐⭐</option>
+                    <option value="4">4 ⭐⭐⭐⭐</option>
+                    <option value="5">5 ⭐⭐⭐⭐⭐</option>
+                </select>
+            </div>
+
+            <!-- Pedido 3: Completado -->
+            <div class="purchase completed">
+                <h3>Pedido #003</h3>
+                <p><strong>Fecha de compra:</strong> 1 de Agosto de 2024</p>
+                <p><strong>Estado:</strong> Entregado</p>
+                <p><strong>Fecha de entrega:</strong> 5 de Agosto de 2024</p>
+                <p><strong>Detalles:</strong> Bicicleta Urbana, talla S, color Verde</p>
+                <label for="rating-003">Calificación:</label>
+                <select id="rating-003" onchange="rateOrder(3)">
+                    <option value="">Selecciona una calificación</option>
+                    <option value="1">1 ⭐</option>
+                    <option value="2">2 ⭐⭐</option>
+                    <option value="3">3 ⭐⭐⭐</option>
+                    <option value="4">4 ⭐⭐⭐⭐</option>
+                    <option value="5">5 ⭐⭐⭐⭐⭐</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para manejar la calificación de los pedidos
+        function rateOrder(orderId) {
+            const rating = document.getElementById(`rating-00${orderId}`).value;
+            if (rating) {
+                alert(`Gracias por calificar el pedido #00${orderId} con ${rating} estrellas.`);
+            }
+        }
+    </script>
+</body>
+</html>
