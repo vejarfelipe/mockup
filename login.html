@@ -13,12 +13,23 @@
 
     <section id="login">
         <h2>Login</h2>
-        <form action="dashboard.html" method="POST">
+        <!-- Formulario de inicio de sesión -->
+        <form id="loginForm" onsubmit="redirectUser(event)">
             <label for="email">Correo electrónico:</label>
             <input type="email" id="email" name="email" required>
 
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
+
+            <!-- Selector de roles -->
+            <label for="role">Selecciona tu rol:</label>
+            <select id="role" name="role" required>
+                <option value="">Selecciona tu rol</option>
+                <option value="comprador">Comprador</option>
+                <option value="tecnico">Técnico</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="vendedor">Vendedor</option>
+            </select>
 
             <button type="submit">Iniciar Sesión</button>
         </form>
@@ -28,5 +39,37 @@
     <footer>
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- JavaScript para la redirección -->
+    <script>
+        function redirectUser(event) {
+            event.preventDefault(); // Prevenir la acción por defecto del formulario
+
+            const role = document.getElementById("role").value;
+
+            // Verificar el rol y redirigir a la URL correspondiente
+            let url;
+            switch (role) {
+                case "comprador":
+                    url = "dashboard_comprador.html";
+                    break;
+                case "tecnico":
+                    url = "dashboard_tecnico.html";
+                    break;
+                case "supervisor":
+                    url = "dashboard_supervisor.html";
+                    break;
+                case "vendedor":
+                    url = "dashboard_vendedor.html";
+                    break;
+                default:
+                    alert("Por favor, selecciona un rol.");
+                    return;
+            }
+
+            // Redirigir a la URL seleccionada
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
