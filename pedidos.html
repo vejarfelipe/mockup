@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Stock - MasterBikes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard Vendedor</h1>
+        <nav>
+            <ul>
+                <li><a href="manuales.html">Manuales</a></li>
+                <li><a href="stock_bodega.html">Ver Stock en Bodega</a></li>
+                <li><a href="ventas_generales.html">Ventas Generales</a></li>
+                <li><a href="proveedores.html">Proveedores</a></li>
+                <li><a href="pedidos.html">Realizar Pedidos</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Gestión de Stock</h2>
+
+        <!-- Tabla de Bicicletas -->
+        <h3>Bicicletas en Stock</h3>
+        <table>
+            <tr>
+                <th>Modelo</th>
+                <th>Stock Actual</th>
+                <th>Solicitar Más</th>
+            </tr>
+            <tr>
+                <td>Bicicleta de Montaña</td>
+                <td>15</td>
+                <td>
+                    <input type="number" id="mountainBikeOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Bicicleta de Montaña', 'mountainBikeOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Bicicleta de Carretera</td>
+                <td>8</td>
+                <td>
+                    <input type="number" id="roadBikeOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Bicicleta de Carretera', 'roadBikeOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Bicicleta Urbana</td>
+                <td>12</td>
+                <td>
+                    <input type="number" id="urbanBikeOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Bicicleta Urbana', 'urbanBikeOrder')">Ordenar</button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Tabla de Repuestos -->
+        <h3>Repuestos en Stock</h3>
+        <table>
+            <tr>
+                <th>Repuesto</th>
+                <th>Stock Actual</th>
+                <th>Solicitar Más</th>
+            </tr>
+            <tr>
+                <td>Frenos</td>
+                <td>20</td>
+                <td>
+                    <input type="number" id="brakesOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Frenos', 'brakesOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Cambios</td>
+                <td>15</td>
+                <td>
+                    <input type="number" id="gearsOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Cambios', 'gearsOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Ruedas</td>
+                <td>10</td>
+                <td>
+                    <input type="number" id="wheelsOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Ruedas', 'wheelsOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Cadena</td>
+                <td>18</td>
+                <td>
+                    <input type="number" id="chainOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Cadena', 'chainOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Asientos</td>
+                <td>12</td>
+                <td>
+                    <input type="number" id="seatOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Asientos', 'seatOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Manillares</td>
+                <td>9</td>
+                <td>
+                    <input type="number" id="handlebarsOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Manillares', 'handlebarsOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Pedales</td>
+                <td>30</td>
+                <td>
+                    <input type="number" id="pedalsOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Pedales', 'pedalsOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Llaves</td>
+                <td>25</td>
+                <td>
+                    <input type="number" id="keysOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Llaves', 'keysOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Luces</td>
+                <td>22</td>
+                <td>
+                    <input type="number" id="lightsOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Luces', 'lightsOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Guardabarros</td>
+                <td>16</td>
+                <td>
+                    <input type="number" id="fendersOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Guardabarros', 'fendersOrder')">Ordenar</button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Tabla de Insumos -->
+        <h3>Insumos en Stock</h3>
+        <table>
+            <tr>
+                <th>Insumo</th>
+                <th>Stock Actual</th>
+                <th>Solicitar Más</th>
+            </tr>
+            <tr>
+                <td>Grasa</td>
+                <td>50</td>
+                <td>
+                    <input type="number" id="greaseOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Grasa', 'greaseOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Overoles</td>
+                <td>30</td>
+                <td>
+                    <input type="number" id="overallsOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Overoles', 'overallsOrder')">Ordenar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Accesorios Varios</td>
+                <td>20</td>
+                <td>
+                    <input type="number" id="variousAccessoriesOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Accesorios Varios', 'variousAccessoriesOrder')">Ordenar</button>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Generar Reportes</h3>
+        <button onclick="generateReport('bicycles')">Generar Reporte de Bicicletas</button>
+        <button onclick="generateReport('spareParts')">Generar Reporte de Repuestos</button>
+        <button onclick="generateReport('supplies')">Generar Reporte de Insumos</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function orderItem(itemName, inputId) {
+            const quantity = document.getElementById(inputId).value;
+            if (quantity && quantity > 0) {
+                alert(`Orden generada para ${quantity} unidades de ${itemName}.`);
+                document.getElementById(inputId).value = ''; // Reset del campo después de ordenar
+            } else {
+                alert("Por favor, ingrese una cantidad válida para ordenar.");
+            }
+        }
+
+        function generateReport(reportType) {
+            alert(`Generando reporte de ${reportType}...`);
+            // Aquí podrías integrar lógica para generar un reporte en PDF
+        }
+    </script>
+</body>
+</html>

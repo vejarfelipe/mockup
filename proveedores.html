@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Supervisor</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para las tarjetas de proveedores */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: calc(33% - 48px); /* 3 cards por fila */
+            display: inline-block;
+            vertical-align: top;
+        }
+        .card h3 {
+            margin: 0 0 8px;
+        }
+        .card p {
+            margin: 4px 0;
+        }
+        .card button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #0056b3;
+        }
+        .add-provider {
+            margin: 20px 0;
+        }
+        .add-provider input {
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 48px); /* 2 cards por fila en pantallas pequeñas */
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                width: calc(100% - 48px); /* 1 card por fila en pantallas muy pequeñas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard Supervisor</h1>
+        <nav>
+            <ul>
+                <li><a href="manuales.html">Manuales</a></li>
+                <li><a href="stock_bodega.html">Ver Stock en Bodega</a></li>
+                <li><a href="ventas_generales.html">Ventas Generales</a></li>
+                <li><a href="proveedores.html">Proveedores</a></li>
+                <li><a href="pedidos.html">Realizar Pedidos</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Opciones del Supervisor</h2>
+        <p>Puedes gestionar manuales, verificar stock, revisar ventas, gestionar proveedores y realizar pedidos.</p>
+        
+        <h2>Acciones Rápidas de Proveedores</h2>
+        
+        <div class="add-provider">
+            <h3>Agregar Proveedor</h3>
+            <input type="text" id="newProviderName" placeholder="Nombre del Proveedor" required>
+            <input type="text" id="newManagerName" placeholder="Nombre del Encargado" required>
+            <input type="text" id="newContactNumber" placeholder="Número de Contacto" required>
+            <input type="email" id="newEmail" placeholder="Email" required>
+            <input type="text" id="newDiscount" placeholder="Descuentos (%)" required>
+            <button onclick="addProvider()">Agregar Proveedor</button>
+        </div>
+
+        <div id="providersContainer">
+            <!-- Las tarjetas de proveedores se generarán aquí -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Array para almacenar proveedores
+        const providers = [
+            {
+                name: 'Shimano',
+                manager: 'Juan López',
+                contact: '555-123-4567',
+                email: 'juan.lopez@shimano.com',
+                discount: '10%'
+            },
+            {
+                name: 'Proveedor A',
+                manager: 'María Pérez',
+                contact: '555-987-6543',
+                email: 'maria.perez@proveedora.com',
+                discount: '5%'
+            },
+            {
+                name: 'Proveedor B',
+                manager: 'Carlos García',
+                contact: '555-456-7890',
+                email: 'carlos.garcia@proveedorb.com',
+                discount: '8%'
+            }
+        ];
+
+        function displayProviders() {
+            const container = document.getElementById('providersContainer');
+            container.innerHTML = ''; // Limpiar el contenedor
+            providers.forEach((provider, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${provider.name}</h3>
+                    <p><strong>Nombre del Encargado:</strong> ${provider.manager}</p>
+                    <p><strong>Contacto:</strong> ${provider.contact}</p>
+                    <p><strong>Email:</strong> ${provider.email}</p>
+                    <p><strong>Descuentos:</strong> ${provider.discount}</p>
+                    <button onclick="generateOrder('${provider.name}')">Generar Orden</button>
+                    <button onclick="removeProvider(${index})">Eliminar</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function addProvider() {
+            const name = document.getElementById('newProviderName').value;
+            const manager = document.getElementById('newManagerName').value;
+            const contact = document.getElementById('newContactNumber').value;
+            const email = document.getElementById('newEmail').value;
+            const discount = document.getElementById('newDiscount').value;
+
+            if (name && manager && contact && email && discount) {
+                providers.push({ name, manager, contact, email, discount });
+                displayProviders();
+                // Resetear campos
+                document.getElementById('newProviderName').value = '';
+                document.getElementById('newManagerName').value = '';
+                document.getElementById('newContactNumber').value = '';
+                document.getElementById('newEmail').value = '';
+                document.getElementById('newDiscount').value = '';
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        }
+
+        function removeProvider(index) {
+            providers.splice(index, 1);
+            displayProviders();
+        }
+
+        function generateOrder(providerName) {
+            alert(`Generando orden para el proveedor ${providerName}...`);
+            // Aquí puedes agregar la lógica para generar la orden
+        }
+
+        // Mostrar proveedores al cargar
+        displayProviders();
+    </script>
+</body>
+</html>
