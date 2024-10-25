@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arriendo de Bicicletas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Arriendo de Bicicletas</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="arriendo.html">Arriendo</a></li>
+                <li><a href="reparacion.html">Reparación</a></li>
+                <li><a href="productos.html">Productos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="formulario-arriendo">
+        <h2>Formulario de Arriendo</h2>
+        <form action="#">
+            <label for="tipoBicicleta">Tipo de bicicleta:</label>
+            <select id="tipoBicicleta" name="tipoBicicleta">
+                <option value="montaña">Montaña</option>
+                <option value="paseo">Paseo</option>
+                <option value="niños">Niños</option>
+            </select>
+
+            <label for="fechaInicio">Fecha de inicio:</label>
+            <input type="date" id="fechaInicio" name="fechaInicio">
+
+            <label for="periodo">Periodo (días):</label>
+            <input type="number" id="periodo" name="periodo" min="1" max="30">
+
+            <label for="formaPago">Forma de pago:</label>
+            <select id="formaPago" name="formaPago">
+                <option value="tarjeta">Tarjeta de crédito</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+
+            <button type="submit">Solicitar Arriendo</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Manuales Técnicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Panel de Manuales Técnicos</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Mi Perfil</a></li>
+                <li><a href="manuales.html">Manuales Técnicos</a></li>
+                <li><a href="index.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="manuales">
+        <h2>Manuales Disponibles</h2>
+        <ul>
+            <li>
+                <p>Manual de Reparación de Frenos</p>
+                <a href="manuales/frenos.pdf" download>Descargar</a> | 
+                <a href="manuales/frenos.pdf" target="_blank">Ver</a> | 
+                <button onclick="window.print()">Imprimir</button>
+            </li>
+            <li>
+                <p>Manual de Ajuste de Cambio</p>
+                <a href="manuales/cambio.pdf" download>Descargar</a> | 
+                <a href="manuales/cambio.pdf" target="_blank">Ver</a> | 
+                <button onclick="window.print()">Imprimir</button>
+            </li>
+        </ul>
+    </section>
+
+    <section id="subir-manual">
+        <h2>Subir Nuevo Manual</h2>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label for="tituloManual">Título del manual:</label>
+            <input type="text" id="tituloManual" name="tituloManual" required>
+
+            <label for="archivoManual">Subir archivo PDF:</label>
+            <input type="file" id="archivoManual" name="archivoManual" accept="application/pdf" required>
+
+            <button type="submit">Subir Manual</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
