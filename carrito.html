@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Comprador</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos para el layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .carrito {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 30%;
+            margin: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .card input {
+            width: 50px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .total {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard Comprador</h1>
+        <nav>
+            <ul>
+                <li><a href="comprar.html">Comprar</a></li>
+                <li><a href="seguimiento_compras.html">Seguimiento de Compras</a></li>
+                <li><a href="arriendo2.html">Arriendo</a></li>
+                <li><a href="reparacion2.html">Reparación</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        
+
+        <h2>Carrito de Compras</h2>
+        <div class="carrito">
+            <div class="card">
+                <img src="recursos/CUBE6531000006_1_720x_3bb4abf4-2a99-4edd-a0f2-a4aac9a58647_1024x.webp" alt="Bicicleta 1">
+                <h3>Bicicleta de Montaña</h3>
+                <p>Precio: $500,000</p>
+                <input type="number" value="1" min="1" onchange="updateTotal()">
+                <button onclick="removeItem(this)">Eliminar</button>
+            </div>
+            <div class="card">
+                <img src="recursos/cetus-roja.webp" alt="Bicicleta 2">
+                <h3>Bicicleta de Ruta</h3>
+                <p>Precio: $700,000</p>
+                <input type="number" value="1" min="1" onchange="updateTotal()">
+                <button onclick="removeItem(this)">Eliminar</button>
+            </div>
+            <div class="card">
+                <img src="recursos/powerflyfs4_22_32759_b_primary.webp" alt="Bicicleta 3">
+                <h3>Bicicleta Eléctrica</h3>
+                <p>Precio: $1,200,000</p>
+                <input type="number" value="1" min="1" onchange="updateTotal()">
+                <button onclick="removeItem(this)">Eliminar</button>
+            </div>
+        </div>
+
+        <div class="total" id="totalPrice">Total: $2,400,000</div>
+        <button onclick="purchase()">Comprar</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function updateTotal() {
+            const cards = document.querySelectorAll('.card');
+            let total = 0;
+
+            cards.forEach(card => {
+                const priceText = card.querySelector('p').innerText.split('$')[1].replace(',', '').trim();
+                const price = parseInt(priceText);
+                const quantity = card.querySelector('input').value;
+                total += price * quantity;
+            });
+
+            document.getElementById('totalPrice').innerText = 'Total: $' + total.toLocaleString();
+        }
+
+        function removeItem(button) {
+            const card = button.parentElement;
+            card.remove();
+            updateTotal();
+        }
+
+        function purchase() {
+    // Redirigir a la página de pago
+    window.location.href = 'pago.html';
+}
+    </script>
+</body>
+</html>

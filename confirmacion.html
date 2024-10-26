@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Compra</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para la página de detalle de compra */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #28a745;
+        }
+        .detalle-compra {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #28a745; /* Color verde */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px; /* Espaciado entre botones */
+            display: inline-block; /* Mantiene los botones en la misma línea */
+            height: 40px; /* Altura uniforme */
+        }
+        button:hover {
+            background-color: #218838; /* Color verde más oscuro al pasar el mouse */
+        }
+        .botones-container {
+            display: flex;
+            justify-content: center; /* Centra los botones en la página */
+            gap: 10px; /* Espaciado entre los botones */
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Felicidades por tu compra!</h1>
+    <div class="detalle-compra">
+        <h2>Detalles de Compra</h2>
+        <p><strong>Nombre del Cliente:</strong> Juan Pérez</p>
+        <p><strong>ID de Compra:</strong> 123456789</p>
+        <p><strong>Bicicleta de Montaña:</strong> $500.000 - Cantidad: 1</p>
+        <p><strong>Bicicleta de Carretera:</strong> $700.000 - Cantidad: 1</p>
+        <p><strong>Total de la Compra:</strong> $1.200.000</p>
+        <p><strong>Fecha Tentativa para Recoger la Bicicleta:</strong> 15 de noviembre de 2024</p>
+        <p>¡Gracias por comprar en nuestra tienda! Bienvenido a la familia Master Bikes. Nos alegra que seas parte de nuestra comunidad. Tu satisfacción es nuestra prioridad.</p>
+    </div>
+    
+    <div class="botones-container">
+        <button onclick="printReceipt()">Imprimir Comprobante</button>
+        <button onclick="goToDashboard()">Volver al Dashboard</button>
+    </div>
+
+    <script>
+        function printReceipt() {
+            window.print(); // Imprime la página actual
+        }
+
+        function goToDashboard() {
+            window.location.href = 'dashboard_comprador.html'; // Redirige al dashboard
+        }
+    </script>
+</body>
+</html>

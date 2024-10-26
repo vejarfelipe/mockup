@@ -5,6 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MasterBikes - Inicio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales para la página de inicio */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        #bienvenida {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #mensaje-motivador {
+            font-size: 1.5em;
+            color: #333;
+            margin: 20px 0;
+        }
+        .galeria {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .galeria img {
+            width: 300px; /* Ancho fijo para las imágenes */
+            height: 200px; /* Altura fija para mantener proporciones iguales */
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .galeria img:hover {
+            transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +72,6 @@
                 <li><a href="arriendo.html">Arriendo</a></li>
                 <li><a href="reparacion.html">Reparación</a></li>
                 <li><a href="productos.html">Productos</a></li>
-                <!-- Botón Login -->
                 <li><a href="login.html" class="button">Login</a></li>
             </ul>
         </nav>
@@ -24,7 +80,16 @@
     <section id="bienvenida">
         <h2>Bienvenido a MasterBikes</h2>
         <p>Ofrecemos arriendo, reparación y venta de bicicletas de la mejor calidad.</p>
+        <div id="mensaje-motivador">
+            <p>¡Únete a nuestra comunidad y vive la aventura sobre dos ruedas!</p>
+        </div>
     </section>
+
+    <div class="galeria">
+        <img src="recursos/foto2.jpg" alt="Bicicleta de montaña">
+        <img src="recursos/foto3.jpg" alt="Bicicleta de carretera">
+        <img src="recursos/fotos4.jpeg" alt="Bicicleta de ciudad">
+    </div>
 
     <footer>
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>

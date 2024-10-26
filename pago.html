@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Pago</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Pago</h1>
+    </header>
+
+    <section>
+        <h2>Información de Pago</h2>
+        <form id="paymentForm">
+            <label for="cardNumber">Número de Tarjeta</label>
+            <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" required>
+
+            <label for="cardName">Nombre del Titular</label>
+            <input type="text" id="cardName" placeholder="Nombre completo" required>
+
+            <label for="expiryDate">Fecha de Expiración</label>
+            <input type="text" id="expiryDate" placeholder="MM/AA" required>
+
+            <label for="cvv">Código de Seguridad (CVV)</label>
+            <input type="number" id="cvv" placeholder="CVV" required>
+
+            <button type="submit">Realizar Pago</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardName = document.getElementById('cardName').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            // Aquí puedes añadir la lógica para procesar el pago
+            alert(`Pago realizado con éxito.\n\nDetalles:\nNúmero de tarjeta: ${cardNumber}\nNombre: ${cardName}\nFecha de Expiración: ${expiryDate}\nCVV: ${cvv}`);
+            window.location.href = 'confirmacion.html';
+
+            // Limpiar el formulario después de realizar el pago
+            document.getElementById('paymentForm').reset();
+        });
+    </script>
+</body>
+</html>

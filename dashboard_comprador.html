@@ -5,6 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Comprador</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales para el dashboard */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .bienvenida {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        .perfil {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .perfil img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        h1 {
+            color: #28a745; /* Color verde */
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        .btn-actualizar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn-actualizar:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,14 +66,29 @@
                 <li><a href="seguimiento_compras.html">Seguimiento de Compras</a></li>
                 <li><a href="arriendo2.html">Arriendo</a></li>
                 <li><a href="reparacion2.html">Reparación</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
                 <li><a href="index.html" class="button">Log out</a></li>
             </ul>
         </nav>
     </header>
 
     <section>
-        <h2>Opciones del Comprador</h2>
-        <p>Puedes realizar una compra, hacer seguimiento de tus compras, alquilar una bicicleta o solicitar una reparación.</p>
+        <div class="bienvenida">
+            <h2>¡Bienvenido a Master Bikes!</h2>
+            <p>Hola, <strong>Juan Pérez</strong>!</p>
+            <p>Estamos encantados de tenerte con nosotros. Aquí puedes gestionar tus compras, alquilar bicicletas y solicitar reparaciones. Si necesitas ayuda, no dudes en contactarnos.</p>
+        </div>
+
+        <div class="perfil">
+            <img src="recursos/ronnie.jpg" alt="Foto de perfil">
+            <div>
+                <h3>Perfil de Usuario</h3>
+                <p><strong>Correo:</strong> juan.perez@example.com</p>
+                <p><strong>Número de contacto:</strong> +56 9 1234 5678</p>
+                <p><strong>Dirección:</strong> Calle Ficticia 123, Ciudad, País</p>
+                <a href="actualizar_datos.html" class="btn-actualizar">Actualizar Datos</a>
+            </div>
+        </div>
     </section>
 
     <footer>
