@@ -3,8 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Productos - MasterBikes</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales para la página de productos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        #introduccion {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        #introduccion img {
+            width: 50%;
+            border-radius: 10px;
+        }
+        #introduccion p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        #listado-productos {
+            text-align: center;
+        }
+        .productos-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: left;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .card p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,13 +106,47 @@
         </nav>
     </header>
 
+    <section id="introduccion">
+        <img src="recursos/51268.jpg" alt="Imagen de bicicletas de montaña">
+        <p>Nos especializamos en la venta tanto de bicicletas de montaña, ruta y eléctricas. Trabajamos con primeras marcas como Shimano, y además tenemos la selección de repuestos más grande del mercado. ¡Te invitamos a registrarte y vivir la experiencia MasterBikes!</p>
+    </section>
+
     <section id="listado-productos">
         <h2>Nuestros Productos</h2>
-        <ul>
-            <li>Bicicleta de montaña - $500.000</li>
-            <li>Bicicleta de paseo - $400.000</li>
-            <li>Bicicleta de niños - $300.000</li>
-        </ul>
+        <div class="productos-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="recursos/foto-1.jpg" alt="Bicicleta de Montaña">
+                <div class="card-content">
+                    <h3>Bicicleta de Montaña</h3>
+                    <p><strong>Precio:</strong> $500,000</p>
+                    <p><strong>Características:</strong> Marco de aluminio, suspensión delantera, 21 velocidades, frenos de disco.</p>
+                    <p><strong>Ideal para:</strong> Terrenos irregulares y montañosos.</p>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="recursos/bicicleta-paseo-26-acero-heben-florencia-2022-negro.jpg" alt="Bicicleta de Paseo">
+                <div class="card-content">
+                    <h3>Bicicleta de Paseo</h3>
+                    <p><strong>Precio:</strong> $400,000</p>
+                    <p><strong>Características:</strong> Marco de acero, asiento cómodo, 7 velocidades, frenos en V.</p>
+                    <p><strong>Ideal para:</strong> Uso en la ciudad y paseos largos.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="recursos/1210422.webp" alt="Bicicleta para Niños">
+                <div class="card-content">
+                    <h3>Bicicleta para Niños</h3>
+                    <p><strong>Precio:</strong> $300,000</p>
+                    <p><strong>Características:</strong> Marco de aluminio ligero, ruedas de apoyo, frenos en V.</p>
+                    <p><strong>Ideal para:</strong> Niños entre 4 y 7 años.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
