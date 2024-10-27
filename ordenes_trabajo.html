@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Órdenes de Trabajo - MasterBikes</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para el formulario */
+        form {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        form label {
+            display: block;
+            margin: 5px 0;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        form button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -172,10 +202,65 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- Formulario para agregar una nueva orden de trabajo -->
+        <h2>Agregar Nueva Orden de Trabajo</h2>
+        <form id="ordenTrabajoForm">
+            <label for="tarea">Tarea:</label>
+            <input type="text" id="tarea" required>
+
+            <label for="fechaInicio">Fecha de Inicio:</label>
+            <input type="date" id="fechaInicio" required>
+
+            <label for="fechaTermino">Fecha de Término:</label>
+            <input type="date" id="fechaTermino" required>
+
+            <label for="tecnico">Técnico:</label>
+            <input type="text" id="tecnico" required>
+
+            <label for="detalleTrabajo">Detalle del Trabajo:</label>
+            <textarea id="detalleTrabajo" required></textarea>
+
+            <label for="estado">Estado:</label>
+            <select id="estado" required>
+                <option value="Completado">Completado</option>
+                <option value="En Proceso">En Proceso</option>
+                <option value="Pendiente">Pendiente</option>
+            </select>
+
+            
+
+            <button type="submit">Agregar Orden de Trabajo</button>
+        </form>
     </section>
 
-    <footer>
-        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
-    </footer>
+    <script>
+        // Aquí puedes agregar la lógica para manejar el formulario y agregar nuevas órdenes de trabajo
+        document.getElementById('ordenTrabajoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Obtener valores de los campos del formulario
+            const tarea = document.getElementById('tarea').value;
+            const fechaInicio = document.getElementById('fechaInicio').value;
+            const fechaTermino = document.getElementById('fechaTermino').value;
+            const tecnico = document.getElementById('tecnico').value;
+            const detalleTrabajo = document.getElementById('detalleTrabajo').value;
+            const estado = document.getElementById('estado').value;
+            
+
+            // Aquí puedes agregar la lógica para guardar la nueva orden de trabajo
+            console.log('Nueva Orden de Trabajo:', {
+                tarea,
+                fechaInicio,
+                fechaTermino,
+                tecnico,
+                detalleTrabajo,
+                estado,
+                
+            });
+
+            // Limpiar el formulario después de enviar
+            this.reset();
+        });
+    </script>
 </body>
 </html>

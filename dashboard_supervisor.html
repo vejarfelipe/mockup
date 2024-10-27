@@ -5,25 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Supervisor</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #333;
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        header img {
+            height: 100px; /* Reduce el tamaño de los logos */
+            flex-shrink: 0; /* Evita que los logos se reduzcan demasiado */
+        }
+        .header-content {
+            text-align: center;
+            flex-grow: 1; /* Deja que el contenido central ocupe el espacio necesario */
+        }
+        .header-content h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Menos espacio para ajustarse mejor */
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        #bienvenida {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .perfil {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .perfil img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .btn-actualizar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-actualizar:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Dashboard Supervisor</h1>
-        <nav>
-            <ul>
-                <li><a href="manuales.html">Manuales</a></li>
-                <li><a href="stock_bodega.html">Ver Stock en Bodega</a></li>
-                <li><a href="ventas_generales.html">Ventas Generales</a></li>
-                <li><a href="proveedores.html">Proveedores</a></li>
-                <li><a href="pedidos.html">Realizar Pedidos</a></li>
-                <li><a href="index.html" class="button">Log out</a></li>
-            </ul>
-        </nav>
+        <img src="recursos/logo.png" alt="Logo MasterBikes Izquierda"> <!-- Logo en el extremo izquierdo -->
+        
+        <div class="header-content">
+            <h1>MasterBikes</h1>
+            <nav>
+                <ul>
+                    <li><a href="dashboard_supervisor.html">Inicio</a></li>
+                    <li><a href="manuales2.html">Manuales</a></li>
+                    <li><a href="stock_bodega.html">Ver Stock en Bodega</a></li>
+                    <li><a href="ventas_generales.html">Ventas Generales</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="pedidos.html">Realizar Pedidos</a></li>
+                    <li><a href="index.html" class="button">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <img src="recursos/logo.png" alt="Logo MasterBikes Derecha"> <!-- Logo en el extremo derecho -->
     </header>
 
+    <!-- Mensaje de bienvenida -->
+    <section id="bienvenida">
+        <h2>¡Bienvenido, Juan Pérez!</h2>
+    </section>
+
+    <!-- Perfil del supervisor -->
     <section>
-        <h2>Opciones del Supervisor</h2>
-        <p>Puedes gestionar manuales, verificar stock, revisar ventas, gestionar proveedores y realizar pedidos.</p>
+        <div class="perfil">
+            <img src="recursos/ronnie.jpg" alt="Foto de perfil">
+            <div>
+                <h3>Perfil de Usuario</h3>
+                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Cargo:</strong> Supervisor</p>
+                <p><strong>Correo:</strong> juan.perez@example.com</p>
+                <p><strong>Número de contacto:</strong> +56 9 1234 5678</p>
+                <button class="btn-actualizar" onclick="abrirModal()">Actualizar Datos</button>
+            </div>
+        </div>
     </section>
 
     <footer>

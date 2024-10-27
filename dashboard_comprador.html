@@ -13,7 +13,7 @@
             padding: 20px;
             background-color: #f8f9fa;
         }
-        .bienvenida {
+        .bienvenida, .perfil {
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 15px;
@@ -21,11 +21,6 @@
             margin-bottom: 20px;
         }
         .perfil {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            background-color: white;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
@@ -36,11 +31,7 @@
             margin-right: 20px;
         }
         h1 {
-            color: #28a745; /* Color verde */
-        }
-        h2 {
-            margin-top: 20px;
-            color: #333;
+            color: white; /* Color verde */
         }
         .btn-actualizar {
             background-color: #28a745;
@@ -55,6 +46,55 @@
         .btn-actualizar:hover {
             background-color: #218838;
         }
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .modal-content h2 {
+            margin-top: 0;
+        }
+        .modal-content label {
+            display: block;
+            margin-top: 10px;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn-guardar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +102,7 @@
         <h1>Dashboard Comprador</h1>
         <nav>
             <ul>
+                <li><a href="dashboard_comprador.html">Perfil</a></li>
                 <li><a href="comprar.html">Comprar</a></li>
                 <li><a href="seguimiento_compras.html">Seguimiento de Compras</a></li>
                 <li><a href="arriendo2.html">Arriendo</a></li>
@@ -86,13 +127,46 @@
                 <p><strong>Correo:</strong> juan.perez@example.com</p>
                 <p><strong>Número de contacto:</strong> +56 9 1234 5678</p>
                 <p><strong>Dirección:</strong> Calle Ficticia 123, Ciudad, País</p>
-                <a href="actualizar_datos.html" class="btn-actualizar">Actualizar Datos</a>
+                <button class="btn-actualizar" onclick="abrirModal()">Actualizar Datos</button>
             </div>
         </div>
     </section>
 
+    <!-- Modal de Edición -->
+    <div id="modalEdicion" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Editar Perfil de Usuario</h2>
+            <form>
+                <label>Nombre:</label>
+                <input type="text" value="Juan Pérez">
+                <label>Correo:</label>
+                <input type="email" value="juan.perez@example.com">
+                <label>Número de contacto:</label>
+                <input type="tel" value="+56 9 1234 5678">
+                <label>Dirección:</label>
+                <input type="text" value="Calle Ficticia 123, Ciudad, País">
+                <button type="button" class="btn-guardar" onclick="guardarCambios()">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Funciones para abrir y cerrar el modal
+        function abrirModal() {
+            document.getElementById('modalEdicion').style.display = 'block';
+        }
+        function cerrarModal() {
+            document.getElementById('modalEdicion').style.display = 'none';
+        }
+        function guardarCambios() {
+            alert("Los cambios han sido guardados correctamente.");
+            cerrarModal();
+        }
+    </script>
 </body>
 </html>
