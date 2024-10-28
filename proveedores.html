@@ -6,6 +6,88 @@
     <title>Dashboard Supervisor</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header con fondo */
+        header {
+            background-image: url('./wp.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Logo y título */
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-title-container img {
+            height: 200px;
+        }
+
+        .logo-title-container h1 {
+            font-family: 'Rockwell', serif;
+            font-size: 3em;
+            margin: 0;
+            color: rgb(247, 245, 245);
+            box-shadow: #333;
+            border-radius: 1;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .highlight {
+            color: #FF6347;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Navegación */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        /* Efecto hover para el nav */
+        nav a:hover {
+            transform: scale(1.5);
+            color: #FF6347;
+        }
+
         /* Estilos para las tarjetas de proveedores */
         .card {
             border: 1px solid #ccc;
@@ -16,6 +98,7 @@
             width: calc(33% - 48px); /* 3 cards por fila */
             display: inline-block;
             vertical-align: top;
+            text-align: left;
         }
         .card h3 {
             margin: 0 0 8px;
@@ -40,21 +123,41 @@
         .add-provider input {
             margin-right: 10px;
         }
+
         @media (max-width: 768px) {
             .card {
                 width: calc(50% - 48px); /* 2 cards por fila en pantallas pequeñas */
+            }
+
+            .logo-title-container h1 {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 1em;
             }
         }
         @media (max-width: 480px) {
             .card {
                 width: calc(100% - 48px); /* 1 card por fila en pantallas muy pequeñas */
             }
+
+            .logo-title-container img {
+                height: 80px;
+            }
+
+            .logo-title-container h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Dashboard Supervisor</h1>
+        <div class="logo-title-container">
+            <img src="recursos/logo.png" alt="Logo MasterBikes">
+            <h1><span class="highlight">M</span>asterBike<span class="highlight">S</span></h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="dashboard_supervisor.html">Inicio</a></li>
@@ -68,26 +171,28 @@
         </nav>
     </header>
 
-    <section>
-        <h2>Opciones del Supervisor</h2>
-        <p>Puedes gestionar manuales, verificar stock, revisar ventas, gestionar proveedores y realizar pedidos.</p>
-        
-        <h2>Acciones Rápidas de Proveedores</h2>
-        
-        <div class="add-provider">
-            <h3>Agregar Proveedor</h3>
-            <input type="text" id="newProviderName" placeholder="Nombre del Proveedor" required>
-            <input type="text" id="newManagerName" placeholder="Nombre del Encargado" required>
-            <input type="text" id="newContactNumber" placeholder="Número de Contacto" required>
-            <input type="email" id="newEmail" placeholder="Email" required>
-            <input type="text" id="newDiscount" placeholder="Descuentos (%)" required>
-            <button onclick="addProvider()">Agregar Proveedor</button>
-        </div>
+    <div class="container">
+        <section>
+            <h2>Opciones del Supervisor</h2>
+            <p>Puedes gestionar manuales, verificar stock, revisar ventas, gestionar proveedores y realizar pedidos.</p>
+            
+            <h2>Acciones Rápidas de Proveedores</h2>
+            
+            <div class="add-provider">
+                <h3>Agregar Proveedor</h3>
+                <input type="text" id="newProviderName" placeholder="Nombre del Proveedor" required>
+                <input type="text" id="newManagerName" placeholder="Nombre del Encargado" required>
+                <input type="text" id="newContactNumber" placeholder="Número de Contacto" required>
+                <input type="email" id="newEmail" placeholder="Email" required>
+                <input type="text" id="newDiscount" placeholder="Descuentos (%)" required>
+                <button onclick="addProvider()">Agregar Proveedor</button>
+            </div>
 
-        <div id="providersContainer">
-            <!-- Las tarjetas de proveedores se generarán aquí -->
-        </div>
-    </section>
+            <div id="providersContainer">
+                <!-- Las tarjetas de proveedores se generarán aquí -->
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
@@ -165,11 +270,11 @@
         }
 
         function generateOrder(providerName) {
-            alert(`Generando orden para el proveedor ${providerName}...`);
-            // Aquí puedes agregar la lógica para generar la orden
+            alert(`Generando orden para ${providerName}`);
+            // Aquí podrías agregar la lógica para generar una orden
         }
 
-        // Mostrar proveedores al cargar
+        // Mostrar proveedores al cargar la página
         displayProviders();
     </script>
 </body>

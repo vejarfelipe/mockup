@@ -3,12 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprar Bicicletas</title>
+    <title>Comprar Bicicletas - MasterBikes</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between; /* Asegura que el footer esté al final */
+        }
+
+        /* Header con fondo */
+        header {
+            background-image: url('./wp.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Logo y título */
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-title-container img {
+            height: 200px;
+        }
+
+        h1 {
+            font-family: 'Rockwell', serif;
+            font-size: 3em;
+            margin: 0;
+            color: rgb(247, 245, 245);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Estilos de navegación */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Sección principal */
+        section {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto; /* Centrar contenido */
+        }
+
+        /* Estilo de los modelos de bicicleta */
+        .stock-models {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .bike-model {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            width: 300px; /* Ancho fijo para los modelos */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .bike-model h3 {
+            margin-top: 0;
+        }
+
+        /* Estilo del formulario de bicicleta personalizada */
+        #customBikeForm {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        /* Estilo para los botones */
+        button {
+            background-color:  #211023;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #aa4033;
+        }
+
+        footer {
+            background-color: #211023;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Comprar Bicicletas</h1>
+        <div class="logo-title-container">
+            <img src="recursos/logo.png" alt="Logo MasterBikes">
+            <h1><span class="highlight">M</span>asterBike<span class="highlight">S</span></h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="dashboard_comprador.html">Perfil</a></li>
@@ -118,35 +252,29 @@
             <label for="custom-color">Color:</label>
             <div class="color-options">
                 <label><input type="radio" name="custom-color" value="rojo" required> <span class="color-swatch" style="background-color: #FF0000;"></span> Rojo</label>
-                <label><input type="radio" name="custom-color" value="azul" required> <span class="color-swatch" style="background-color: #0000FF;"></span> Azul</label>
-                <label><input type="radio" name="custom-color" value="verde" required> <span class="color-swatch" style="background-color: #008000;"></span> Verde</label>
-                <!-- Más colores... -->
+                <label><input type="radio" name="custom-color" value="azul"> <span class="color-swatch" style="background-color: #0000FF;"></span> Azul</label>
+                <label><input type="radio" name="custom-color" value="verde"> <span class="color-swatch" style="background-color: #008000;"></span> Verde</label>
             </div>
 
-            <label for="custom-accessories">Accesorios (opcional):</label>
-            <textarea id="custom-accessories" placeholder="Ej: porta botellas, luces, etc."></textarea>
-
-            <button type="submit" onclick="orderCustomBike()">Generar Orden de Compra</button>
+            <button type="submit">Personalizar Bicicleta</button>
         </form>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Función para añadir modelos de stock al carrito
         function addToCart(model) {
-            alert(model + " añadido al carrito de compras.");
-            // Aquí puedes agregar código para enviar el modelo seleccionado al carrito
+            alert(model + ' añadido al carrito.');
+            // Aquí puedes agregar la lógica para añadir al carrito
         }
 
-        // Función para procesar la bicicleta personalizada
-        function orderCustomBike() {
-            alert("Orden de compra generada para la bicicleta personalizada.");
-            // Aquí puedes agregar código para enviar la orden personalizada al carrito
-        }
+        // Aquí puedes agregar la lógica para el formulario de bicicleta personalizada
+        document.getElementById('customBikeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+            alert('Bicicleta personalizada creada con éxito!');
+        });
     </script>
 </body>
 </html>

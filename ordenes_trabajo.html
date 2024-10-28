@@ -6,6 +6,98 @@
     <title>Órdenes de Trabajo - MasterBikes</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header con fondo */
+        header {
+            background-image: url('./wp.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Logo y título */
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-title-container img {
+            height: 200px;
+        }
+
+        .logo-title-container h1 {
+            font-family: 'Rockwell', serif;
+            font-size: 3em;
+            margin: 0;
+            color: rgb(247, 245, 245);
+            box-shadow: #333;
+            border-radius: 1;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .highlight {
+            color: #FF6347;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Navegación */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.5);
+            color: #FF6347;
+        }
+
+        /* Sección de trabajos */
+        #trabajos {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
         /* Estilos para el formulario */
         form {
             margin-top: 20px;
@@ -13,18 +105,21 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             background-color: #f9f9f9;
+            text-align: left;
         }
         form label {
             display: block;
             margin: 5px 0;
         }
-        form input, form select {
+        form input, form select, form textarea {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         form button {
-            background-color: #28a745;
+            background-color:  #211023;
             color: white;
             border: none;
             border-radius: 5px;
@@ -32,13 +127,42 @@
             cursor: pointer;
         }
         form button:hover {
-            background-color: #218838;
+            background-color: #aa4033;
+        }
+
+        /* Tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color:  #211023;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #211023;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Órdenes de Trabajo</h1>
+        <div class="logo-title-container">
+            <img src="recursos/logo.png" alt="Logo MasterBikes">
+            <h1><span class="highlight">M</span>asterBike<span class="highlight">S</span></h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="ver_stock.html">Ver Stock</a></li>
@@ -50,204 +174,204 @@
         </nav>
     </header>
 
-    <section id="trabajos">
-        <h2>Órdenes de Trabajo Realizadas</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tarea</th>
-                    <th>Fecha de Inicio</th>
-                    <th>Fecha de Término</th>
-                    <th>Técnico</th>
-                    <th>Detalle del Trabajo</th>
-                    <th>Estado</th>
-                    <th>Evaluación</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Armado de bicicleta de montaña</td>
-                    <td>2024-10-01</td>
-                    <td>2024-10-03</td>
-                    <td>Juan Pérez</td>
-                    <td>Armado completo de bicicleta de montaña, ajuste de frenos y cambio de velocidad.</td>
-                    <td>Completado</td>
-                    <td>Excelente</td>
-                </tr>
-                <tr>
-                    <td>Reparación de frenos</td>
-                    <td>2024-10-02</td>
-                    <td>2024-10-03</td>
-                    <td>María Gómez</td>
-                    <td>Reemplazo de pastillas de freno y ajuste de frenos delanteros y traseros.</td>
-                    <td>Completado</td>
-                    <td>Buena</td>
-                </tr>
-                <tr>
-                    <td>Armado de bicicleta de paseo</td>
-                    <td>2024-10-03</td>
-                    <td>2024-10-05</td>
-                    <td>Pedro Martínez</td>
-                    <td>Ensamblaje de cuadro, instalación de ruedas y ajuste de asiento y manubrio.</td>
-                    <td>Completado</td>
-                    <td>Excelente</td>
-                </tr>
-                <tr>
-                    <td>Reparación de neumáticos</td>
-                    <td>2024-10-05</td>
-                    <td>2024-10-06</td>
-                    <td>Juan Pérez</td>
-                    <td>Reemplazo de neumáticos delanteros y traseros.</td>
-                    <td>Completado</td>
-                    <td>Regular</td>
-                </tr>
-                <tr>
-                    <td>Revisión de frenos</td>
-                    <td>2024-10-06</td>
-                    <td>2024-10-07</td>
-                    <td>María Gómez</td>
-                    <td>Ajuste y revisión general de los frenos.</td>
-                    <td>Completado</td>
-                    <td>Buena</td>
-                </tr>
-                <tr>
-                    <td>Armado de bicicleta eléctrica</td>
-                    <td>2024-10-08</td>
-                    <td>2024-10-10</td>
-                    <td>Pedro Martínez</td>
-                    <td>Armado y prueba de una bicicleta eléctrica de montaña.</td>
-                    <td>Completado</td>
-                    <td>Excelente</td>
-                </tr>
-                <tr>
-                    <td>Reparación de cadena</td>
-                    <td>2024-10-11</td>
-                    <td>2024-10-12</td>
-                    <td>Juan Pérez</td>
-                    <td>Cambio de cadena y engrase de componentes.</td>
-                    <td>Completado</td>
-                    <td>Excelente</td>
-                </tr>
-                <tr>
-                    <td>Armado de bicicleta de triatlón</td>
-                    <td>2024-10-13</td>
-                    <td>2024-10-15</td>
-                    <td>María Gómez</td>
-                    <td>Armado y ajuste de una bicicleta de triatlón.</td>
-                    <td>Completado</td>
-                    <td>Buena</td>
-                </tr>
-                <tr>
-                    <td>Revisión general de bicicleta</td>
-                    <td>2024-10-16</td>
-                    <td>2024-10-17</td>
-                    <td>Pedro Martínez</td>
-                    <td>Revisión general de todos los componentes de la bicicleta.</td>
-                    <td>Completado</td>
-                    <td>Regular</td>
-                </tr>
-                <tr>
-                    <td>Instalación de accesorios</td>
-                    <td>2024-10-18</td>
-                    <td>2024-10-19</td>
-                    <td>Juan Pérez</td>
-                    <td>Instalación de luces, timbre y portabidón.</td>
-                    <td>Completado</td>
-                    <td>Excelente</td>
-                </tr>
-                <tr>
-                    <td>Reparación de manillar</td>
-                    <td>2024-10-20</td>
-                    <td>2024-10-21</td>
-                    <td>María Gómez</td>
-                    <td>Reemplazo de manillar y ajuste de frenos.</td>
-                    <td>Completado</td>
-                    <td>Buena</td>
-                </tr>
-                <tr>
-                    <td>Armado de bicicleta para niños</td>
-                    <td>2024-10-22</td>
-                    <td>2024-10-24</td>
-                    <td>Pedro Martínez</td>
-                    <td>Armado y ajuste de una bicicleta para niños.</td>
-                    <td>Completado</td>
-                    <td>Excelente</td>
-                </tr>
-                <tr>
-                    <td>Reparación de frenos de disco</td>
-                    <td>2024-10-25</td>
-                    <td>2024-10-26</td>
-                    <td>Juan Pérez</td>
-                    <td>Reemplazo de pastillas de freno y ajuste de sistema de frenos de disco.</td>
-                    <td>En Proceso</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Mantenimiento de bicicleta de montaña</td>
-                    <td>2024-10-27</td>
-                    <td>2024-10-28</td>
-                    <td>María Gómez</td>
-                    <td>Mantenimiento general de bicicleta de montaña.</td>
-                    <td>En Proceso</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Revisión de cambios</td>
-                    <td>2024-10-29</td>
-                    <td>2024-10-30</td>
-                    <td>Pedro Martínez</td>
-                    <td>Revisión y ajuste de cambios.</td>
-                    <td>En Proceso</td>
-                    <td>N/A</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <section id="trabajos">
+            <h2>Órdenes de Trabajo Realizadas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Término</th>
+                        <th>Técnico</th>
+                        <th>Detalle del Trabajo</th>
+                        <th>Estado</th>
+                        <th>Evaluación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Armado de bicicleta de montaña</td>
+                        <td>2024-10-01</td>
+                        <td>2024-10-03</td>
+                        <td>Juan Pérez</td>
+                        <td>Armado completo de bicicleta de montaña, ajuste de frenos y cambio de velocidad.</td>
+                        <td>Completado</td>
+                        <td>Excelente</td>
+                    </tr>
+                    <tr>
+                        <td>Reparación de frenos</td>
+                        <td>2024-10-02</td>
+                        <td>2024-10-03</td>
+                        <td>María Gómez</td>
+                        <td>Reemplazo de pastillas de freno y ajuste de frenos delanteros y traseros.</td>
+                        <td>Completado</td>
+                        <td>Buena</td>
+                    </tr>
+                    <tr>
+                        <td>Armado de bicicleta de paseo</td>
+                        <td>2024-10-03</td>
+                        <td>2024-10-05</td>
+                        <td>Pedro Martínez</td>
+                        <td>Ensamblaje de cuadro, instalación de ruedas y ajuste de asiento y manubrio.</td>
+                        <td>Completado</td>
+                        <td>Excelente</td>
+                    </tr>
+                    <tr>
+                        <td>Reparación de neumáticos</td>
+                        <td>2024-10-05</td>
+                        <td>2024-10-06</td>
+                        <td>Juan Pérez</td>
+                        <td>Reemplazo de neumáticos delanteros y traseros.</td>
+                        <td>Completado</td>
+                        <td>Regular</td>
+                    </tr>
+                    <tr>
+                        <td>Revisión de frenos</td>
+                        <td>2024-10-06</td>
+                        <td>2024-10-07</td>
+                        <td>María Gómez</td>
+                        <td>Ajuste y revisión general de los frenos.</td>
+                        <td>Completado</td>
+                        <td>Buena</td>
+                    </tr>
+                    <tr>
+                        <td>Armado de bicicleta eléctrica</td>
+                        <td>2024-10-08</td>
+                        <td>2024-10-10</td>
+                        <td>Pedro Martínez</td>
+                        <td>Armado y prueba de una bicicleta eléctrica de montaña.</td>
+                        <td>Completado</td>
+                        <td>Excelente</td>
+                    </tr>
+                    <tr>
+                        <td>Reparación de cadena</td>
+                        <td>2024-10-11</td>
+                        <td>2024-10-12</td>
+                        <td>Juan Pérez</td>
+                        <td>Cambio de cadena y engrase de componentes.</td>
+                        <td>Completado</td>
+                        <td>Excelente</td>
+                    </tr>
+                    <tr>
+                        <td>Armado de bicicleta de triatlón</td>
+                        <td>2024-10-13</td>
+                        <td>2024-10-15</td>
+                        <td>María Gómez</td>
+                        <td>Armado y ajuste de una bicicleta de triatlón.</td>
+                        <td>Completado</td>
+                        <td>Buena</td>
+                    </tr>
+                    <tr>
+                        <td>Revisión general de bicicleta</td>
+                        <td>2024-10-16</td>
+                        <td>2024-10-17</td>
+                        <td>Pedro Martínez</td>
+                        <td>Revisión general de todos los componentes de la bicicleta.</td>
+                        <td>Completado</td>
+                        <td>Regular</td>
+                    </tr>
+                    <tr>
+                        <td>Instalación de accesorios</td>
+                        <td>2024-10-18</td>
+                        <td>2024-10-19</td>
+                        <td>Juan Pérez</td>
+                        <td>Instalación de luces, timbre y portabidón.</td>
+                        <td>Completado</td>
+                        <td>Excelente</td>
+                    </tr>
+                    <tr>
+                        <td>Reparación de manillar</td>
+                        <td>2024-10-20</td>
+                        <td>2024-10-21</td>
+                        <td>María Gómez</td>
+                        <td>Reemplazo de manillar y ajuste de frenos.</td>
+                        <td>Completado</td>
+                        <td>Buena</td>
+                    </tr>
+                    <tr>
+                        <td>Armado de bicicleta para niños</td>
+                        <td>2024-10-22</td>
+                        <td>2024-10-24</td>
+                        <td>Pedro Martínez</td>
+                        <td>Armado y ajuste de una bicicleta para niños.</td>
+                        <td>Completado</td>
+                        <td>Excelente</td>
+                    </tr>
+                    <tr>
+                        <td>Reparación de frenos de disco</td>
+                        <td>2024-10-25</td>
+                        <td>2024-10-26</td>
+                        <td>Juan Pérez</td>
+                        <td>Reemplazo de pastillas de freno y ajuste de sistema de frenos de disco.</td>
+                        <td>En Proceso</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Mantenimiento de bicicleta de montaña</td>
+                        <td>2024-10-27</td>
+                        <td>2024-10-28</td>
+                        <td>María Gómez</td>
+                        <td>Mantenimiento general de bicicleta de montaña.</td>
+                        <td>En Proceso</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Revisión de cambios</td>
+                        <td>2024-10-29</td>
+                        <td>2024-10-30</td>
+                        <td>Pedro Martínez</td>
+                        <td>Revisión y ajuste de cambios.</td>
+                        <td>En Proceso</td>
+                        <td>N/A</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <!-- Formulario para agregar una nueva orden de trabajo -->
-        <h2>Agregar Nueva Orden de Trabajo</h2>
-        <form id="ordenTrabajoForm">
-            <label for="tarea">Tarea:</label>
-            <input type="text" id="tarea" required>
+            <!-- Formulario para agregar una nueva orden de trabajo -->
+            <h2>Agregar Nueva Orden de Trabajo</h2>
+            <form id="ordenTrabajoForm">
+                <label for="tarea">Tarea:</label>
+                <input type="text" id="tarea" required>
 
-            <label for="fechaInicio">Fecha de Inicio:</label>
-            <input type="date" id="fechaInicio" required>
+                <label for="fechaInicio">Fecha de Inicio:</label>
+                <input type="date" id="fechaInicio" required>
 
-            <label for="fechaTermino">Fecha de Término:</label>
-            <input type="date" id="fechaTermino" required>
+                <label for="fechaTermino">Fecha de Término:</label>
+                <input type="date" id="fechaTermino" required>
 
-            <label for="tecnico">Técnico:</label>
-            <input type="text" id="tecnico" required>
+                <label for="tecnico">Técnico:</label>
+                <input type="text" id="tecnico" required>
 
-            <label for="detalleTrabajo">Detalle del Trabajo:</label>
-            <textarea id="detalleTrabajo" required></textarea>
+                <label for="detalleTrabajo">Detalle del Trabajo:</label>
+                <textarea id="detalleTrabajo" required></textarea>
 
-            <label for="estado">Estado:</label>
-            <select id="estado" required>
-                <option value="Completado">Completado</option>
-                <option value="En Proceso">En Proceso</option>
-                <option value="Pendiente">Pendiente</option>
-            </select>
+                <label for="estado">Estado:</label>
+                <select id="estado" required>
+                    <option value="Completado">Completado</option>
+                    <option value="En Proceso">En Proceso</option>
+                    <option value="Pendiente">Pendiente</option>
+                </select>
 
-            
+                <button type="submit">Agregar Orden de Trabajo</button>
+            </form>
+        </section>
+    </div>
 
-            <button type="submit">Agregar Orden de Trabajo</button>
-        </form>
-    </section>
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
-        // Aquí puedes agregar la lógica para manejar el formulario y agregar nuevas órdenes de trabajo
         document.getElementById('ordenTrabajoForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            // Obtener valores de los campos del formulario
             const tarea = document.getElementById('tarea').value;
             const fechaInicio = document.getElementById('fechaInicio').value;
             const fechaTermino = document.getElementById('fechaTermino').value;
             const tecnico = document.getElementById('tecnico').value;
             const detalleTrabajo = document.getElementById('detalleTrabajo').value;
             const estado = document.getElementById('estado').value;
-            
 
-            // Aquí puedes agregar la lógica para guardar la nueva orden de trabajo
             console.log('Nueva Orden de Trabajo:', {
                 tarea,
                 fechaInicio,
@@ -255,10 +379,8 @@
                 tecnico,
                 detalleTrabajo,
                 estado,
-                
             });
 
-            // Limpiar el formulario después de enviar
             this.reset();
         });
     </script>

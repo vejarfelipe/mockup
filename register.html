@@ -3,12 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title>
+    <title>Registro de Usuario - MasterBikes</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header con fondo */
+        header {
+            background-image: url('./wp.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Logo y título */
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-title-container img {
+            height: 200px;
+        }
+
+        .logo-title-container h1 {
+            font-family: 'Rockwell', serif;
+            font-size: 3em;
+            margin: 0;
+            color: rgb(247, 245, 245);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Sección de registro */
+        #registro {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar horizontalmente */
+            justify-content: center; /* Centrar verticalmente */
+            padding: 20px;
+            text-align: center;
+        }
+
+        #registro h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Estilos del formulario */
+        form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px; /* Ancho del formulario */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%; /* Ancho completo */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #FF6347; /* Color del botón */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Ancho completo */
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            background-color: #e55347; /* Color del botón al pasar el mouse */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>MasterBikes - Registro</h1>
+        <div class="logo-title-container">
+            <img src="recursos/logo.png" alt="Logo MasterBikes"> <!-- Agrega el logo aquí -->
+            <h1><span class="highlight">M</span>asterBikes - Registro</h1>
+        </div>
     </header>
 
     <section id="registro">
