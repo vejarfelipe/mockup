@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Precios - MasterBikes</title>
+    <title>Gestión de Stock - MasterBikes</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilos básicos */
@@ -128,22 +128,6 @@
             color: white;
         }
 
-        /* Botón aplicar cambios */
-        .apply-button {
-            background-color: #FF6347;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-
-        .apply-button:hover {
-            background-color: #e5534c;
-        }
-
         /* Footer */
         footer {
             background-color: #211023;
@@ -197,142 +181,189 @@
         </nav>
     </header>
     <section>
-        <h2>Gestión de Precios</h2>
+        <h2>Gestión de Stock</h2>
 
-        <!-- Tabla de Precios de Bicicletas -->
-        <h3>Bicicletas</h3>
+        <!-- Tabla de Bicicletas -->
+        <h3>Bicicletas en Stock</h3>
         <table>
             <tr>
                 <th>Modelo</th>
-                <th>Precio Actual</th>
-                <th>Nuevo Precio</th>
-                <th>Descuento (%)</th>
-                <th>Precio Final</th>
+                <th>Stock Actual</th>
+                <th>Solicitar Más</th>
+                <th>Bloquear</th>
+                <th>Restar</th>
+                <th>Agregar</th>
             </tr>
             <tr>
                 <td>Bicicleta de Montaña</td>
-                <td id="mountainBikePrice">$500</td>
+                <td id="mountainBikeStock">15</td>
                 <td>
-                    <input type="number" id="mountainBikeNewPrice" placeholder="Nuevo Precio">
+                    <input type="number" id="mountainBikeOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Bicicleta de Montaña', 'mountainBikeOrder', 'mountainBikeStock')">Ordenar</button>
                 </td>
                 <td>
-                    <input type="number" id="mountainBikeDiscount" placeholder="Descuento">
+                    <input type="checkbox" id="mountainBikeBlock" onchange="toggleBlock('Bicicleta de Montaña', 'mountainBikeBlock')">
                 </td>
-                <td id="mountainBikeFinalPrice">$500</td>
+                <td>
+                    <input type="number" id="mountainBikeSubtract" placeholder="Restar">
+                    <button onclick="subtractStock('mountainBikeStock', 'mountainBikeSubtract')">Restar</button>
+                </td>
+                <td>
+                    <input type="number" id="mountainBikeAdd" placeholder="Agregar">
+                    <button onclick="addStock('mountainBikeStock', 'mountainBikeAdd')">Agregar</button>
+                </td>
             </tr>
             <tr>
                 <td>Bicicleta de Carretera</td>
-                <td id="roadBikePrice">$600</td>
+                <td id="roadBikeStock">8</td>
                 <td>
-                    <input type="number" id="roadBikeNewPrice" placeholder="Nuevo Precio">
+                    <input type="number" id="roadBikeOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Bicicleta de Carretera', 'roadBikeOrder', 'roadBikeStock')">Ordenar</button>
                 </td>
                 <td>
-                    <input type="number" id="roadBikeDiscount" placeholder="Descuento">
+                    <input type="checkbox" id="roadBikeBlock" onchange="toggleBlock('Bicicleta de Carretera', 'roadBikeBlock')">
                 </td>
-                <td id="roadBikeFinalPrice">$600</td>
+                <td>
+                    <input type="number" id="roadBikeSubtract" placeholder="Restar">
+                    <button onclick="subtractStock('roadBikeStock', 'roadBikeSubtract')">Restar</button>
+                </td>
+                <td>
+                    <input type="number" id="roadBikeAdd" placeholder="Agregar">
+                    <button onclick="addStock('roadBikeStock', 'roadBikeAdd')">Agregar</button>
+                </td>
             </tr>
             <tr>
                 <td>Bicicleta Urbana</td>
-                <td id="urbanBikePrice">$400</td>
+                <td id="urbanBikeStock">12</td>
                 <td>
-                    <input type="number" id="urbanBikeNewPrice" placeholder="Nuevo Precio">
+                    <input type="number" id="urbanBikeOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Bicicleta Urbana', 'urbanBikeOrder', 'urbanBikeStock')">Ordenar</button>
                 </td>
                 <td>
-                    <input type="number" id="urbanBikeDiscount" placeholder="Descuento">
+                    <input type="checkbox" id="urbanBikeBlock" onchange="toggleBlock('Bicicleta Urbana', 'urbanBikeBlock')">
                 </td>
-                <td id="urbanBikeFinalPrice">$400</td>
+                <td>
+                    <input type="number" id="urbanBikeSubtract" placeholder="Restar">
+                    <button onclick="subtractStock('urbanBikeStock', 'urbanBikeSubtract')">Restar</button>
+                </td>
+                <td>
+                    <input type="number" id="urbanBikeAdd" placeholder="Agregar">
+                    <button onclick="addStock('urbanBikeStock', 'urbanBikeAdd')">Agregar</button>
+                </td>
             </tr>
         </table>
 
-        <!-- Tabla de Precios de Repuestos -->
-        <h3>Repuestos</h3>
+        <!-- Tabla de Repuestos -->
+        <h3>Repuestos en Stock</h3>
         <table>
             <tr>
                 <th>Repuesto</th>
-                <th>Precio Actual</th>
-                <th>Nuevo Precio</th>
-                <th>Descuento (%)</th>
-                <th>Precio Final</th>
+                <th>Stock Actual</th>
+                <th>Solicitar Más</th>
+                <th>Bloquear</th>
+                <th>Restar</th>
+                <th>Agregar</th>
             </tr>
             <tr>
                 <td>Frenos</td>
-                <td id="brakesPrice">$50</td>
+                <td id="brakesStock">20</td>
                 <td>
-                    <input type="number" id="brakesNewPrice" placeholder="Nuevo Precio">
+                    <input type="number" id="brakesOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Frenos', 'brakesOrder', 'brakesStock')">Ordenar</button>
                 </td>
                 <td>
-                    <input type="number" id="brakesDiscount" placeholder="Descuento">
+                    <input type="checkbox" id="brakesBlock" onchange="toggleBlock('Frenos', 'brakesBlock')">
                 </td>
-                <td id="brakesFinalPrice">$50</td>
+                <td>
+                    <input type="number" id="brakesSubtract" placeholder="Restar">
+                    <button onclick="subtractStock('brakesStock', 'brakesSubtract')">Restar</button>
+                </td>
+                <td>
+                    <input type="number" id="brakesAdd" placeholder="Agregar">
+                    <button onclick="addStock('brakesStock', 'brakesAdd')">Agregar</button>
+                </td>
             </tr>
             <tr>
-                <td>Neumáticos</td>
-                <td id="tirePrice">$30</td>
+                <td>Llanta</td>
+                <td id="tireStock">10</td>
                 <td>
-                    <input type="number" id="tireNewPrice" placeholder="Nuevo Precio">
+                    <input type="number" id="tireOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Llanta', 'tireOrder', 'tireStock')">Ordenar</button>
                 </td>
                 <td>
-                    <input type="number" id="tireDiscount" placeholder="Descuento">
+                    <input type="checkbox" id="tireBlock" onchange="toggleBlock('Llanta', 'tireBlock')">
                 </td>
-                <td id="tireFinalPrice">$30</td>
+                <td>
+                    <input type="number" id="tireSubtract" placeholder="Restar">
+                    <button onclick="subtractStock('tireStock', 'tireSubtract')">Restar</button>
+                </td>
+                <td>
+                    <input type="number" id="tireAdd" placeholder="Agregar">
+                    <button onclick="addStock('tireStock', 'tireAdd')">Agregar</button>
+                </td>
             </tr>
             <tr>
                 <td>Cadena</td>
-                <td id="chainPrice">$20</td>
+                <td id="chainStock">5</td>
                 <td>
-                    <input type="number" id="chainNewPrice" placeholder="Nuevo Precio">
+                    <input type="number" id="chainOrder" placeholder="Cantidad">
+                    <button onclick="orderItem('Cadena', 'chainOrder', 'chainStock')">Ordenar</button>
                 </td>
                 <td>
-                    <input type="number" id="chainDiscount" placeholder="Descuento">
+                    <input type="checkbox" id="chainBlock" onchange="toggleBlock('Cadena', 'chainBlock')">
                 </td>
-                <td id="chainFinalPrice">$20</td>
+                <td>
+                    <input type="number" id="chainSubtract" placeholder="Restar">
+                    <button onclick="subtractStock('chainStock', 'chainSubtract')">Restar</button>
+                </td>
+                <td>
+                    <input type="number" id="chainAdd" placeholder="Agregar">
+                    <button onclick="addStock('chainStock', 'chainAdd')">Agregar</button>
+                </td>
             </tr>
         </table>
-
-        <button class="apply-button" onclick="applyChanges()">Aplicar Cambios</button>
     </section>
-
     <footer>
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        function updateFinalPrice(priceId, newPriceId, discountId, finalPriceId) {
-            const priceElement = document.getElementById(priceId);
-            const newPriceElement = document.getElementById(newPriceId);
-            const discountElement = document.getElementById(discountId);
-            const finalPriceElement = document.getElementById(finalPriceId);
-
-            // Obtener precio actual
-            let price = parseFloat(priceElement.innerText.replace('$', '')) || 0;
-            // Obtener nuevo precio
-            let newPrice = parseFloat(newPriceElement.value) || price;
-            // Obtener descuento
-            const discount = parseFloat(discountElement.value) || 0;
-
-            // Calcular precio final
-            const finalPrice = newPrice - (newPrice * (discount / 100));
-            finalPriceElement.innerText = `$${finalPrice.toFixed(2)}`;
+        function toggleBlock(item, checkbox) {
+            const isBlocked = document.getElementById(checkbox).checked;
+            alert(`${item} ha sido ${isBlocked ? 'bloqueado' : 'desbloqueado'}.`);
         }
 
-        function applyChanges() {
-            const products = [
-                { finalPriceId: 'mountainBikeFinalPrice', newPriceId: 'mountainBikeNewPrice', discountId: 'mountainBikeDiscount' },
-                { finalPriceId: 'roadBikeFinalPrice', newPriceId: 'roadBikeNewPrice', discountId: 'roadBikeDiscount' },
-                { finalPriceId: 'urbanBikeFinalPrice', newPriceId: 'urbanBikeNewPrice', discountId: 'urbanBikeDiscount' },
-                { finalPriceId: 'brakesFinalPrice', newPriceId: 'brakesNewPrice', discountId: 'brakesDiscount' },
-                { finalPriceId: 'tireFinalPrice', newPriceId: 'tireNewPrice', discountId: 'tireDiscount' },
-                { finalPriceId: 'chainFinalPrice', newPriceId: 'chainNewPrice', discountId: 'chainDiscount' },
-            ];
+        function orderItem(item, orderInput, stockId) {
+            const quantity = parseInt(document.getElementById(orderInput).value);
+            const stock = parseInt(document.getElementById(stockId).innerText);
+            if (!isNaN(quantity) && quantity > 0) {
+                alert(`Solicitando ${quantity} unidades de ${item}.`);
+                // Aquí podrías agregar lógica para realizar el pedido
+            } else {
+                alert('Por favor, ingresa una cantidad válida.');
+            }
+        }
 
-            let message = 'Nuevos Precios Finales:\n';
-            products.forEach(product => {
-                const finalPrice = document.getElementById(product.finalPriceId).innerText;
-                const newPrice = document.getElementById(product.newPriceId).value || 'Sin cambio';
-                message += `${product.finalPriceId.replace('FinalPrice', '')}: ${finalPrice} (Nuevo Precio: ${newPrice})\n`;
-            });
+        function subtractStock(stockId, subtractInput) {
+            const stock = parseInt(document.getElementById(stockId).innerText);
+            const quantity = parseInt(document.getElementById(subtractInput).value);
+            if (!isNaN(quantity) && quantity > 0 && stock >= quantity) {
+                document.getElementById(stockId).innerText = stock - quantity;
+                alert(`Se han restado ${quantity} unidades. Nuevo stock: ${stock - quantity}`);
+            } else {
+                alert('Cantidad no válida o stock insuficiente.');
+            }
+        }
 
-            alert(message);
+        function addStock(stockId, addInput) {
+            const stock = parseInt(document.getElementById(stockId).innerText);
+            const quantity = parseInt(document.getElementById(addInput).value);
+            if (!isNaN(quantity) && quantity > 0) {
+                document.getElementById(stockId).innerText = stock + quantity;
+                alert(`Se han agregado ${quantity} unidades. Nuevo stock: ${stock + quantity}`);
+            } else {
+                alert('Cantidad no válida.');
+            }
         }
     </script>
 </body>
