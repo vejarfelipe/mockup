@@ -201,7 +201,8 @@
                 <option value="efectivo">Efectivo</option>
             </select>
 
-            <button type="submit">Solicitar Arriendo</button>
+            <button type="button" id="solicitarArriendoBtn">Solicitar Arriendo</button>
+
         </form>
     </section>
 
@@ -210,3 +211,9 @@
     </footer>
 </body>
 </html>
+<script>
+    document.getElementById("solicitarArriendoBtn").addEventListener("click", function(event) {
+        event.preventDefault(); // Previene el envío del formulario
+        alert("Por favor, inicie sesión para solicitar el arriendo.");
+    });
+</script>
