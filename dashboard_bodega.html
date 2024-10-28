@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Vendedor</title>
+    <title>Dashboard Bodeguero</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilos básicos */
@@ -20,7 +20,7 @@
 
         /* Header con fondo */
         header {
-            background-image: url('./wp.jpg'); 
+            background-image: url('./wp.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -47,7 +47,14 @@
             font-size: 3em;
             margin: 0;
             color: rgb(247, 245, 245);
+            box-shadow: #333;
+            border-radius: 1;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .highlight {
+            color: #FF6347;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
         }
 
         /* Navegación */
@@ -81,17 +88,16 @@
             color: #333;
         }
 
-        /* Perfil del vendedor */
+        /* Perfil del bodeguero */
         .perfil {
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 15px;
             background-color: white;
-            margin: 20px 0;
+            margin: 20px auto;
             display: flex;
             align-items: center;
-            justify-content: center; /* Centrado */
-            text-align: left; /* Alineación del texto a la izquierda */
+            max-width: 600px;
         }
 
         .perfil img {
@@ -112,7 +118,7 @@
         }
 
         .btn-actualizar:hover {
-            background-color: #aa4033;
+            background-color: #aa4033 ;
         }
 
         /* Footer */
@@ -124,22 +130,40 @@
             width: 100%;
             margin-top: auto;
         }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .logo-title-container h1 {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-title-container img {
+                height: 80px;
+            }
+
+            .logo-title-container h1 {
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo-title-container">
             <img src="recursos/logo.png" alt="Logo MasterBikes">
-            <h1><span class="highlight">M</span>asterBike<span class="highlight">S</span></h1>
+            <h1><span class="highlight">D</span>ashboard Bodeguero</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="dashboard_vendedor.html">Inicio</a></li>
-                <li><a href="ver_stock.html">Ver Stock</a></li>
-                <li><a href="vender.html">Vender</a></li>
-                <li><a href="ordenes_trabajo.html">Generar Órdenes de Trabajo</a></li>
-                <li><a href="ventas.html">Ventas</a></li>
-                <li><a href="estado_compras_ventas.html">Estado de Compras y Ventas</a></li>
+                <li><a href="dashboard_bodega.html">Inicio</a></li>
+                <li><a href="pedidos_bodeguero.html">Administrar Stock</a></li>
+                
                 <li><a href="index.html" class="button">Log out</a></li>
             </ul>
         </nav>
@@ -150,14 +174,14 @@
         <h2>¡Bienvenido, Juan Pérez!</h2>
     </section>
 
-    <!-- Perfil del vendedor -->
+    <!-- Perfil del bodeguero -->
     <section>
         <div class="perfil">
             <img src="recursos/ronnie.jpg" alt="Foto de perfil">
             <div>
                 <h3>Perfil de Usuario</h3>
                 <p><strong>Nombre:</strong> Juan Pérez</p>
-                <p><strong>Cargo:</strong> Vendedor</p>
+                <p><strong>Cargo:</strong> Bodeguero</p>
                 <p><strong>Correo:</strong> juan.perez@example.com</p>
                 <p><strong>Número de contacto:</strong> +56 9 1234 5678</p>
                 <button class="btn-actualizar" onclick="abrirModal()">Actualizar Datos</button>

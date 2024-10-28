@@ -139,6 +139,8 @@
                 <option value="tecnico">Técnico</option>
                 <option value="supervisor">Supervisor</option>
                 <option value="vendedor">Vendedor</option>
+                <option value="bodega">Bodeguero</option>
+                <option value="administrador">Administrador</option>
             </select>
 
             <button type="submit">Iniciar Sesión</button>
@@ -171,6 +173,12 @@
                     break;
                 case "vendedor":
                     url = "dashboard_vendedor.html";
+                    break;
+                case "bodega":
+                    url = "dashboard_bodega.html";
+                    break;
+                case "administrador":
+                    url = "dashboard_administrador.html";
                     break;
                 default:
                     alert("Por favor, selecciona un rol.");

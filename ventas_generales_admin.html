@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Vendedor - Ventas</title>
+    <title>Dashboard Supervisor</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilos básicos */
@@ -56,7 +56,6 @@
             margin: 0;
             color: rgb(247, 245, 245);
             box-shadow: #333;
-            border-radius: 1;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
         }
 
@@ -82,28 +81,49 @@
             transition: transform 0.2s ease, color 0.2s ease;
         }
 
-        /* Efecto hover para el nav */
         nav a:hover {
             transform: scale(1.5);
             color: #FF6347;
         }
 
-        /* Sección */
-        section {
-            text-align: center;
-            padding: 20px;
+        /* Estilos para las tarjetas de proveedores */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: calc(33% - 48px); /* 3 cards por fila */
+            display: inline-block;
+            vertical-align: top;
+            text-align: center; /* Centrar texto en tarjetas */
         }
 
-        h2 {
-            margin-top: 20px;
+        .card h3 {
+            margin: 0 0 8px;
         }
 
-        /* Resumen de Ventas */
+        .card p {
+            margin: 4px 0;
+        }
+
+        .card button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
         .ventas-resumen {
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
-            flex-wrap: wrap;
         }
 
         .ventas-resumen div {
@@ -112,15 +132,13 @@
             border-radius: 8px;
             width: 30%;
             text-align: center;
-            margin: 10px 0;
         }
 
-        /* Botón */
         button {
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
-            background-color: #28a745;
+            background-color:  #211023;
             color: white;
             border: none;
             border-radius: 5px;
@@ -129,37 +147,34 @@
         }
 
         button:hover {
-            background-color: #218838;
+            background-color: #aa4033;
         }
 
-        /* Footer */
-        footer {
-            background-color: #211023;
-            color: white;
-            padding: 20px;
+        .meta-ventas, .proyecciones {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
-            width: 100%;
-            margin-top: auto;
+        }
+
+        .meta-ventas {
+            background-color: #e7f3fe;
+        }
+
+        .proyecciones {
+            background-color: #d4edda;
         }
 
         /* Estilos responsivos */
         @media (max-width: 768px) {
-            .logo-title-container h1 {
-                font-size: 2.5em;
-            }
-
-            nav a {
-                font-size: 1em;
-            }
-
-            .ventas-resumen div {
-                width: 80%; /* Ajuste en pantallas pequeñas */
+            .card {
+                width: calc(50% - 48px); /* 2 cards por fila en pantallas pequeñas */
             }
         }
-
+        
         @media (max-width: 480px) {
-            .logo-title-container img {
-                height: 80px;
+            .card {
+                width: calc(100% - 48px); /* 1 card por fila en pantallas muy pequeñas */
             }
 
             .logo-title-container h1 {
@@ -172,16 +187,18 @@
     <header>
         <div class="logo-title-container">
             <img src="recursos/logo.png" alt="Logo MasterBikes">
-            <h1><span class="highlight">D</span>ashboard <span class="highlight">V</span>endedor</h1>
+            <h1><span class="highlight">D</span>ashboard <span class="highlight">S</span>upervisor</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="dashboard_vendedor.html">Inicio</a></li>
-                <li><a href="ver_stock.html">Ver Stock</a></li>
-                <li><a href="vender.html">Vender</a></li>
-                <li><a href="ordenes_trabajo.html">Generar Órdenes de Trabajo</a></li>
-                <li><a href="ventas.html">Ventas</a></li>
-                <li><a href="estado_compras_ventas.html">Estado de Compras y Ventas</a></li>
+                <li><a href="dashboard_administrador.html">Inicio</a></li>
+                
+                <li><a href="orden_trabajo_admin.html">Ordenes de trabajo</a></li>
+                <li><a href="pedidos_admin.html">Stock y Pedidos</a></li>
+                <li><a href="ventas_generales_admin.html">Ventas</a></li>
+                <li><a href="generar_user.html">Administrar usuarios</a></li>
+                <li><a href="precios_admin.html">Precios</a></li>
+                
                 <li><a href="index.html" class="button">Log out</a></li>
             </ul>
         </nav>
@@ -222,6 +239,20 @@
                 </div>
             </div>
 
+            <!-- Metas de Ventas -->
+            <div class="meta-ventas">
+                <h3>Meta de Ventas del Mes</h3>
+                <p>Meta: $100,000,000</p>
+                <p>Ventas Necesarias para alcanzar la meta: $10,500,000</p>
+            </div>
+
+            <!-- Proyecciones de Negocio -->
+            <div class="proyecciones">
+                <h3>Proyecciones de Negocio</h3>
+                <p>Proyección de Ventas para el Próximo Mes: $120,000,000</p>
+                <p>Crecimiento Estimado: 20%</p>
+            </div>
+
             <!-- Selector para tipo de informe -->
             <label for="tipo-informe">Selecciona el tipo de informe:</label>
             <select id="tipo-informe">
@@ -232,48 +263,24 @@
 
             <!-- Botón para Generar Informe PDF -->
             <button onclick="generarInforme()">Generar Informe PDF</button>
+            <button onclick="enviarInforme()">Enviar informe</button>
+            <button onclick="eliminarInforme()">Eliminar informe</button>
         </section>
+
+        <footer>
+            <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Librería jsPDF para la generación de PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
         function generarInforme() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            const tipoInforme = document.getElementById('tipo-informe').value;
-
-            // Títulos y contenido
-            doc.setFontSize(18);
-            doc.text(`Informe de Ventas - ${tipoInforme.charAt(0).toUpperCase() + tipoInforme.slice(1)}`, 10, 10);
-
-            doc.setFontSize(14);
-            if (tipoInforme === 'diario') {
-                doc.text("Ventas del Día", 10, 30);
-                doc.text("Bicicletas Vendidas: 5 - $2,500,000", 10, 40);
-                doc.text("Repuestos Vendidos: 10 - $500,000", 10, 50);
-                doc.text("Accesorios Vendidos: 20 - $100,000", 10, 60);
-                doc.text("Total: $3,100,000", 10, 70);
-            } else if (tipoInforme === 'semanal') {
-                doc.text("Ventas de la Semana", 10, 30);
-                doc.text("Bicicletas Vendidas: 30 - $15,000,000", 10, 40);
-                doc.text("Repuestos Vendidos: 60 - $3,000,000", 10, 50);
-                doc.text("Accesorios Vendidos: 100 - $500,000", 10, 60);
-                doc.text("Total: $18,500,000", 10, 70);
-            } else if (tipoInforme === 'mensual') {
-                doc.text("Ventas del Mes", 10, 30);
-                doc.text("Bicicletas Vendidas: 150 - $75,000,000", 10, 40);
-                doc.text("Repuestos Vendidos: 250 - $12,500,000", 10, 50);
-                doc.text("Accesorios Vendidos: 400 - $2,000,000", 10, 60);
-                doc.text("Total: $89,500,000", 10, 70);
-            }
-
-            // Guardar PDF
-            doc.save(`informe_ventas_${tipoInforme}.pdf`);
+            alert('Informe generado con éxito.');
+        }
+        function enviarInforme() {
+            alert('Informe enviado a los supervisores.');
+        }
+        function eliminarInforme() {
+            alert('Todos los informes han sido eliminados');
         }
     </script>
 </body>

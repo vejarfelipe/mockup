@@ -124,6 +124,33 @@
             background-color: #FF4500;
         }
 
+        /* Sección de reparaciones anteriores */
+        #reparaciones-anteriores {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #FF6347;
+            color: white;
+        }
+
         /* Footer */
         footer {
             background-color: #211023;
@@ -160,7 +187,7 @@
     <header>
         <div class="logo-title-container">
             <img src="recursos/logo.png" alt="Logo MasterBikes">
-            <h1><span class="highlight">M</span>asterBike<span class="highlight">S</span></h1>
+            <h1><span class="highlight">R</span>eparació<span class="highlight">n</span></h1>
         </div>
         <nav>
             <ul>
@@ -187,6 +214,45 @@
 
                 <button type="submit">Solicitar Reparación</button>
             </form>
+        </section>
+
+        <!-- Sección de Reparaciones Anteriores -->
+        <section id="reparaciones-anteriores">
+            <h2>Reparaciones Anteriores</h2>
+            <table>
+                <tr>
+                    <th>Técnico</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Término</th>
+                    <th>Estado</th>
+                    <th>Costo</th>
+                </tr>
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>Cambio de frenos</td>
+                    <td>2024-10-01</td>
+                    <td>2024-10-05</td>
+                    <td>Completado</td>
+                    <td>$5000</td>
+                </tr>
+                <tr>
+                    <td>María López</td>
+                    <td>Revisión de llantas</td>
+                    <td>2024-10-29</td>
+                    <td>2024-10-30</td>
+                    <td>En Proceso</td>
+                    <td>$3000</td>
+                </tr>
+                <tr>
+                    <td>Carlos Martínez</td>
+                    <td>Ajuste de cambios</td>
+                    <td>2024-10-20</td>
+                    <td>2024-10-25</td>
+                    <td>Completado</td>
+                    <td>$20000</td>
+                </tr>
+            </table>
         </section>
     </div>
 

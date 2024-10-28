@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Vendedor</title>
+    <title>Dashboard Administrador</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilos básicos */
@@ -50,6 +50,11 @@
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
         }
 
+        .highlight {
+            color: #FF6347;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
         /* Navegación */
         nav ul {
             list-style-type: none;
@@ -73,7 +78,7 @@
             color: #FF6347;
         }
 
-        /* Sección de bienvenida */
+        /* Mensaje de bienvenida */
         #bienvenida {
             text-align: center;
             margin: 20px 0;
@@ -81,17 +86,18 @@
             color: #333;
         }
 
-        /* Perfil del vendedor */
+        /* Perfil del administrador */
         .perfil {
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 15px;
             background-color: white;
-            margin: 20px 0;
+            margin: 20px auto;
+            width: 80%; /* Ajusta el ancho del perfil */
+            max-width: 800px; /* Establece un ancho máximo */
             display: flex;
             align-items: center;
-            justify-content: center; /* Centrado */
-            text-align: left; /* Alineación del texto a la izquierda */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra para mejor visualización */
         }
 
         .perfil img {
@@ -102,17 +108,18 @@
         }
 
         .btn-actualizar {
-            background-color:  #211023;
+            background-color: #28a745;
             color: white;
             border: none;
             border-radius: 5px;
             padding: 10px 15px;
             cursor: pointer;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         .btn-actualizar:hover {
-            background-color: #aa4033;
+            background-color: #218838;
         }
 
         /* Footer */
@@ -124,6 +131,36 @@
             width: 100%;
             margin-top: auto;
         }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .logo-title-container h1 {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 1em;
+            }
+
+            .perfil {
+                flex-direction: column;
+                align-items: center; /* Alinea el perfil verticalmente en pantallas más pequeñas */
+            }
+
+            .perfil img {
+                margin: 0 0 10px 0; /* Espaciado en la parte inferior de la imagen */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-title-container img {
+                height: 80px;
+            }
+
+            .logo-title-container h1 {
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -134,12 +171,14 @@
         </div>
         <nav>
             <ul>
-                <li><a href="dashboard_vendedor.html">Inicio</a></li>
-                <li><a href="ver_stock.html">Ver Stock</a></li>
-                <li><a href="vender.html">Vender</a></li>
-                <li><a href="ordenes_trabajo.html">Generar Órdenes de Trabajo</a></li>
-                <li><a href="ventas.html">Ventas</a></li>
-                <li><a href="estado_compras_ventas.html">Estado de Compras y Ventas</a></li>
+                <li><a href="dashboard_administrador.html">Inicio</a></li>
+                
+                <li><a href="orden_trabajo_admin.html">Ordenes de trabajo</a></li>
+                <li><a href="pedidos_admin.html">Stock y Pedidos</a></li>
+                <li><a href="ventas_generales_admin.html">Ventas</a></li>
+                <li><a href="generar_user.html">Administrar usuarios</a></li>
+                <li><a href="precios_admin.html">Precios</a></li>
+                
                 <li><a href="index.html" class="button">Log out</a></li>
             </ul>
         </nav>
@@ -147,17 +186,17 @@
 
     <!-- Mensaje de bienvenida -->
     <section id="bienvenida">
-        <h2>¡Bienvenido, Juan Pérez!</h2>
+        <h2>¡Bienvenido, Administrador!</h2>
     </section>
 
-    <!-- Perfil del vendedor -->
+    <!-- Perfil del administrador -->
     <section>
         <div class="perfil">
-            <img src="recursos/ronnie.jpg" alt="Foto de perfil">
+            <img src="recursos/admin.jpg" alt="Foto de perfil">
             <div>
                 <h3>Perfil de Usuario</h3>
                 <p><strong>Nombre:</strong> Juan Pérez</p>
-                <p><strong>Cargo:</strong> Vendedor</p>
+                <p><strong>Cargo:</strong> Administrador</p>
                 <p><strong>Correo:</strong> juan.perez@example.com</p>
                 <p><strong>Número de contacto:</strong> +56 9 1234 5678</p>
                 <button class="btn-actualizar" onclick="abrirModal()">Actualizar Datos</button>
