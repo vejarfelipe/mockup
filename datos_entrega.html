@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Entrega</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./wp.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header con fondo e imagen centrada */
+        header {
+            background-image: url('./wp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-title-container img {
+            height: 200px;
+        }
+
+        .logo-title-container h1 {
+            font-family: 'Rockwell', serif;
+            font-size: 3em;
+            margin: 0;
+            color: rgb(247, 245, 245);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .highlight {
+            color: #FF6347;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Navegación */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        /* Efecto hover para el nav */
+        nav a:hover {
+            transform: scale(1.5);
+            color: #FF6347;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        select, input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #211023;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #aa4033;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title-container">
+            <img src="recursos/logo.png" alt="Logo MasterBikes">
+            <h1><span class="highlight">D</span>atos de <span class="highlight">E</span>ntrega</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="dashboard_comprador.html">Perfil</a></li>
+                <li><a href="comprar.html">Comprar</a></li>
+                <li><a href="seguimiento_compras.html">Seguimiento de Compras</a></li>
+                <li><a href="arriendo2.html">Arriendo</a></li>
+                <li><a href="reparacion2.html">Reparación</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="index.html" class="button">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Datos de Entrega</h2>
+        <form id="entregaForm">
+            <label for="tipoEntrega">Tipo de Entrega</label>
+            <select id="tipoEntrega" name="tipoEntrega">
+                <option value="retiro">Retiro Local</option>
+                <option value="domicilio">Envío a Domicilio</option>
+            </select>
+
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="tipoPago">Tipo de Pago</label>
+            <select id="tipoPago" name="tipoPago">
+                <option value="tarjeta">Tarjeta de Débito/Crédito</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+
+            <button type="button" onclick="procesarEntrega()">Continuar</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function procesarEntrega() {
+            const tipoEntrega = document.getElementById("tipoEntrega").value;
+            const tipoPago = document.getElementById("tipoPago").value;
+            
+            if (tipoEntrega === "retiro" && tipoPago === "efectivo") {
+                window.location.href = "confirmacion.html";
+            } else {
+                window.location.href = "pago.html";
+            }
+        }
+
+        document.getElementById("tipoEntrega").addEventListener("change", function() {
+            const tipoPago = document.getElementById("tipoPago");
+            tipoPago.innerHTML = this.value === "retiro"
+                ? '<option value="tarjeta">Tarjeta de Débito/Crédito</option><option value="efectivo">Efectivo</option>'
+                : '<option value="tarjeta">Tarjeta de Débito/Crédito</option>';
+        });
+    </script>
+</body>
+</html>

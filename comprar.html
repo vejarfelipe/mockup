@@ -101,13 +101,11 @@
             margin-top: 0;
         }
 
-        /* Estilo del formulario de bicicleta personalizada */
-        #customBikeForm {
-            background-color: white;
-            border: 1px solid #ddd;
+        .bike-model img {
+            width: 100%;
+            height: auto;
             border-radius: 5px;
-            padding: 15px;
-            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         /* Estilo para los botones */
@@ -166,8 +164,9 @@
         <!-- Modelos de bicicletas pre fabricadas -->
         <div class="stock-models">
             <div class="bike-model">
+                <img src="recursos/CUBE6531000006_1_720x_3bb4abf4-2a99-4edd-a0f2-a4aac9a58647_1024x.webp" alt="Modelo Montaña">
                 <h3>Modelo Montaña</h3>
-                <p>Precio: $500</p>
+                <p>Precio: $1500000</p>
                 <label for="mountain-size">Selecciona Talla:</label>
                 <select id="mountain-size">
                     <option value="S">S</option>
@@ -186,8 +185,9 @@
             </div>
 
             <div class="bike-model">
+                <img src="recursos/cetus-roja.webp" alt="Modelo Carretera">
                 <h3>Modelo Carretera</h3>
-                <p>Precio: $700</p>
+                <p>Precio: $700000</p>
                 <label for="road-size">Selecciona Talla:</label>
                 <select id="road-size">
                     <option value="S">S</option>
@@ -206,8 +206,9 @@
             </div>
 
             <div class="bike-model">
+                <img src="recursos/bici urbana.jpg" alt="Modelo Urbano">
                 <h3>Modelo Urbano</h3>
-                <p>Precio: $450</p>
+                <p>Precio: $300000</p>
                 <label for="urban-size">Selecciona Talla:</label>
                 <select id="urban-size">
                     <option value="S">S</option>
@@ -224,9 +225,31 @@
 
                 <button onclick="addToCart('Modelo Urbano')">Añadir al Carrito</button>
             </div>
-        </div>
-    </section>
 
+            <!-- Nuevos productos añadidos -->
+            <div class="bike-model">
+                <img src="recursos/casco.webp" alt="Casco de Bicicleta">
+                <h3>Casco de Bicicleta</h3>
+                <p>Precio: $50000</p>
+                <button onclick="addToCart('Casco de Bicicleta')">Añadir al Carrito</button>
+            </div>
+
+            <div class="bike-model">
+                <img src="recursos/asiento.jpg" alt="Asiento de Bicicleta">
+                <h3>Asiento de Bicicleta</h3>
+                <p>Precio: $15000</p>
+                <button onclick="addToCart('Asiento de Bicicleta')">Añadir al Carrito</button>
+            </div>
+
+            <div class="bike-model">
+                <img src="recursos/pedales.jpg" alt="Pedales">
+                <h3>Pedales</h3>
+                <p>Precio: $8000</p>
+                <button onclick="addToCart('Pedales')">Añadir al Carrito</button>
+            </div>
+        </div>
+        
+    </section>
     <!-- Sección para personalizar bicicleta -->
     <section>
         <h2>Bicicleta Personalizada</h2>
@@ -268,17 +291,3 @@
         <p>&copy; 2024 MasterBikes. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        function addToCart(model) {
-            alert(model + ' añadido al carrito.');
-            // Aquí puedes agregar la lógica para añadir al carrito
-        }
-
-        // Aquí puedes agregar la lógica para el formulario de bicicleta personalizada
-        document.getElementById('customBikeForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el envío del formulario
-            alert('Bicicleta personalizada creada con éxito!');
-        });
-    </script>
-</body>
-</html>
